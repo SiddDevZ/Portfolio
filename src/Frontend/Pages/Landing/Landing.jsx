@@ -9,7 +9,7 @@ const Landing = () => {
         <ParticlesComponent />
       </div>
       <div className="main">
-        <h1 className="text-white">hi</h1>
+        <h1 className="text-white">Landing</h1>
       </div>
     </>
   );
