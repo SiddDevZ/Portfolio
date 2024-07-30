@@ -14,6 +14,7 @@ export default {
       fontFamily: {
         pop: ["Poppins", "sans-serif"],
         inter: ['Inter', 'sans-serif'],
+        robot: ["Roboto Mono", "monospace"],
       }
     },
   },
