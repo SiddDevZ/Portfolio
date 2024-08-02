@@ -3,12 +3,12 @@ import './NavBar.css'
 
 const NavBar = () => {
   return (
-    <div className='flex py-[1.3rem] nav px-[8rem] justify-between items-center'>
-      <h1 className='font-robot text-xl'>&lt;/SiddZ&gt;</h1>
-      <div className='flex gap-[3.15rem] items-center'>
-        <h1 className='font-inter text-[#ffffff] text-xl cursor-pointer hover-underline-animation'>About</h1>
-        <h1 className='font-inter text-[#FFFFFF] text-xl cursor-pointer hover-underline-animation'>Projects</h1>
-        <button className='font-pop text-xl px-[1.3rem] py-[0.4rem] bg-[#ffffff] text-black rounded-full overflow-hidden hover:bg-[#f1f1f1] transition-all hover:scale-105 ease-in-out text-btn'>Contact</button>
+    <div className='flex py-3 sm:py-4 lg:py-[1.3rem] nav px-4 sm:px-6 lg:px-[8rem] justify-between items-center'>
+      <h1 className='font-robot text-lg sm:text-xl'>&lt;/SiddZ&gt;</h1>
+      <div className='flex gap-4 sm:gap-6 lg:gap-[3.15rem] items-center'>
+        <h1 className='font-inter text-[#ffffff] text-base sm:text-lg xl:text-xl cursor-pointer hover-underline-animation'>About</h1>
+        <h1 className='font-inter text-[#FFFFFF] text-base sm:text-lg xl:text-xl cursor-pointer hover-underline-animation'>Projects</h1>
+        <button className='font-pop text-base sm:text-lg xl:text-xl px-3 sm:px-4 lg:px-[1.3rem] py-1 sm:py-2 lg:py-[0.4rem] bg-[#ffffff] text-black rounded-full overflow-hidden hover:bg-[#f1f1f1] transition-all hover:scale-105 ease-in-out text-btn'>Contact</button>
       </div>
     </div>
   )
