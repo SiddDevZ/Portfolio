@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useMemo } from 'react';
 import './Landing.css';
 import ParticlesComponent from '../../Components/Particles/Particles';
 import NavBar from '../../Components/NavBar/NavBar'
