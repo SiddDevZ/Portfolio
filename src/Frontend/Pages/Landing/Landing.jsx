@@ -1,10 +1,12 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import './Landing.css';
 import ParticlesComponent from '../../Components/Particles/Particles';
 import NavBar from '../../Components/NavBar/NavBar'
 import TechStack from '../../Components/TechStack/TechStack'
 import 'remixicon/fonts/remixicon.css'
 import Project from '../../Components/Project/Project';
+import { Toaster, toast } from "sonner";
+import axios from 'axios';
 
 const Landing = () => {
 
@@ -17,13 +19,53 @@ const Landing = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const memoizedParticles = useMemo(() => <ParticlesComponent />, []);
+  
+  const handleContactClick = () => {
+    const contact = document.getElementById("contact");
+    if (contact) {
+      contact.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  const handleSubmit = async (e) => {
+    if (submitted === true) {return}
+    var data = {
+      service_id: 'service_5lt93fb',
+      template_id: 'template_cxxitvt',
+      user_id: 'LkCnVmcFfXTXGYbVF',
+      template_params: {
+          'from_name': name,
+          'to_name': 'Siddharth',
+          'email_id': email,
+          'message': message
+      }
+    };
+
+    axios.post('https://api.emailjs.com/api/v1.0/email/send', data)
+    .then(() => {
+      toast.success("Message Sent!", { position: "bottom-right" });
+      setSubmitted(true);
+      setName('');
+      setEmail('');
+      setMessage('');
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 7000)
+    })
+    .catch((error) => {
+      toast.error("Failed, Please try sending via Email!", { position: "bottom-right" });
+    });
+  };
 
   return (
     <>
-      <div className="-z-10 full-screen">
-        {memoizedParticles}
+      <div className="full-screen">
+        <div className='-z-10'>
+          {memoizedParticles}
+        </div>
+        <Toaster richColors theme="dark" />
       </div>
-      <NavBar />
+      <NavBar handleContactClick={handleContactClick} />
       <div className="main flex flex-col items-center px-7">
         <div className='pt-10 max-w-[52rem] main-area mb-5'>
           <div className='sec-1'>
@@ -31,7 +73,7 @@ const Landing = () => {
             <h2 className='font-inter md:text-2xl xss:text-[1.15rem] leading-7 font-medium text-[#e6e6e6]'>Full-Stack Web Developer, Designer, and Software Tinkerer</h2>
           </div>
           <div className='sec-2'>
-            <p className='text-[#BBBBBB] mt-8 font-pop font-medium xs:text-lg xss:text-[1.09rem] tracking-[0.015em]'>I’m Siddharth! <span className='text-[#F2F2F2]'>I have 3+ years of experience in web dev</span>, I spend most of my time in <span className='text-[#F2F2F2]'>coding and business</span>, My passion lies in dreaming ideas and bringing them to life. If this combination interests you, <span className='text-[#F2F2F2]'>feel free to connect!</span></p>
+            <p className='text-[#BBBBBB] mt-8 font-pop font-medium xs:text-lg xss:text-[1.09rem] tracking-[0.015em]'>I’m Siddharth! <span className='text-[#F2F2F2]'>I have 3+ years of experience in web dev</span>, I spend most of my time in <span className='text-[#F2F2F2]'>coding and business</span>, My passion lies in dreaming ideas and bringing them to life. If this combination interests you, <span className='text-[#F2F2F2]'>feel free to connect with me!</span></p>
             <p className='text-[#BBBBBB] mt-5 font-pop font-medium xs:text-lg xss:text-[1.09rem] tracking-wide'>Outside of programming, I enjoy doing cinematography and sports.</p>
             <div className='flex gap-2 mt-[0.15rem]'>
               <div className='flex flex-wrap gap-[0.35rem]'>
@@ -50,19 +92,19 @@ const Landing = () => {
             <p className='text-[#BBBBBB] mt-5 font-pop font-medium text-lg tracking-wide'>Find me on</p>
             <div className='socials flex flex-wrap items-center'>
               <a href="https://github.com/SiddDevZ" target="_blank" rel="noopener noreferrer" className='flex mr-[1rem] items-center gap-[0.35rem] group hover:cursor-pointer' >
-                <i class="ri-github-fill text-2xl text-[#F2F2F2]"></i>
+                <i className="ri-github-fill text-2xl text-[#F2F2F2]"></i>
                 <p className=' text-[#F2F2F2] group-hover:underline'>GitHub</p>
               </a>
               <a href="https://x.com/epicsidd" target="_blank" rel="noopener noreferrer" className='flex mr-[1rem] items-center gap-[0.35rem] group hover:cursor-pointer'>
-                <i class="ri-twitter-x-line text-[1.31rem] text-[#F2F2F2]"></i>
+                <i className="ri-twitter-x-line text-[1.31rem] text-[#F2F2F2]"></i>
                 <p className=' text-[#F2F2F2] group-hover:underline'>Twitter</p>
               </a>
               <a href="https://discordapp.com/users/27335278144284262" target="_blank" rel="noopener noreferrer" className='flex mr-[1rem] items-center gap-[0.35rem] group hover:cursor-pointer'>
-                <i class="ri-discord-fill text-2xl text-[#F2F2F2]"></i>
+                <i className="ri-discord-fill text-2xl text-[#F2F2F2]"></i>
                 <p className=' text-[#F2F2F2] group-hover:underline'>Discord</p>
               </a>
               <a href="https://www.instagram.com/siddharth_jorwal/" target="_blank" rel="noopener noreferrer" className='flex mr-[1rem] items-center gap-[0.35rem] group hover:cursor-pointer'>
-                <i class="ri-instagram-line text-[1.41rem] text-[#F2F2F2]"></i>
+                <i className="ri-instagram-line text-[1.41rem] text-[#F2F2F2]"></i>
                 <p className=' text-[#F2F2F2] group-hover:underline'>Instagram</p>
               </a>
             </div>
@@ -80,7 +122,7 @@ const Landing = () => {
             </div>
           </div>
 
-          <div className='sec-5 mt-12'>
+          <div className='sec-5 sm:mt-10 xss:mt-8'>
             <div className='w-full flex'>
               <div className="wavy-heading inline-flex items-center">
                 <h1 className='text-[2.4rem] font-pop font-extrabold cursor-default'>Contact Me</h1>
@@ -93,7 +135,7 @@ const Landing = () => {
             <div className='mt-3 flex flex-col'>
               <div className='inline-flex flex-col xs:mt-0 xss:mt-2 gap-1'>
                 {/* <a href="https://www.instagram.com/siddharth_jorwal/" className='flex items-center gap-[0.4rem] group hover:cursor-pointer' target="_blank" rel="noopener noreferrer">
-                  <i class="ri-whatsapp-line text-[1.35rem] text-[#e6e6e6]"></i>
+                  <i className="ri-whatsapp-line text-[1.35rem] text-[#e6e6e6]"></i>
                   <h1 className='underline decoration-[0.2px] -translate-y-[0.1rem] text-[#f1f1f1] text-base underline-offset-4 group-hover:decoration-[#34c31e] transition-all duration-100'>Message me on Whatsapp</h1>
                 </a>
                 <a href="https://www.instagram.com/siddharth_jorwal/" className='flex items-center gap-[0.4rem] group hover:cursor-pointer' target="_blank" rel="noopener noreferrer">
@@ -101,11 +143,11 @@ const Landing = () => {
                   <h1 className='underline decoration-[0.2px] -translate-y-[0.1rem] text-[#f1f1f1] text-base underline-offset-4 group-hover:decoration-[#34c31e] transition-all duration-100'>Send me an Email</h1>
                 </a>
                 <button className='flex gap-[0.6rem] items-center w-[45%] justify-center px-2 py-1 bg-[#12c152] rounded-lg overflow-hidden hover:bg-[#f1f1f1] transition-all hover:scale-[1.01] ease-in-out text-btn'>
-                  <i class="ri-whatsapp-line text-[1.35rem] text-black"></i>
+                  <i className="ri-whatsapp-line text-[1.35rem] text-black"></i>
                   <h1 className='decoration-[0.2px] -translate-y-[0.1rem] text-black text-base underline-offset-4 group-hover:decoration-[#34c31e] transition-all duration-100'>Whatsapp</h1>
                 </button> */}
               </div>
-              <div className='contact-form mt-2'>
+              <div className='contact-form mt-2' id='contact'>
                 <div className='contact-sec-1 w-full flex justify-between'>
                   <div className='contact-input w-[40%]'>
                     <label className="block mb-[0.4rem] text-sm font-semibold" htmlFor="Name">
@@ -117,7 +159,7 @@ const Landing = () => {
                       value={name}
                       onClick={() => setNameError(false)}
                       onChange={(e) => setName(e.target.value)}
-                      className={`${nameError ? "bg-[#3c0000] input-error" : "bg-[#1A1A1A]"} h-12 w-full placeholder-[#8d8d8d] flex items-center pl-6 text-xl rounded-md border-2 border-[#c6c6c6] text-white focus:outline-none focus:ring-0 focus:border-slate-100`}
+                      className={`${nameError ? "bg-[#3c0000] input-error" : "bg-[#1A1A1A]"} h-12 w-full placeholder-[#8d8d8d] flex items-center lg:px-6 md:px-4 sm:px-3 xss:px-[0.78rem] md:text-xl xs:text-lg xss:text-base rounded-md border-2 border-[#c6c6c6] text-white focus:outline-none focus:ring-0 focus:border-slate-100`}
                     />
                   </div>
                   <div className='contact-input w-[57%]'>
@@ -131,7 +173,7 @@ const Landing = () => {
                       value={email}
                       onClick={() => setEmailError(false)}
                       onChange={(e) => setEmail(e.target.value)}
-                      className={`${emailError ? "bg-[#3c0000] input-error" : "bg-[#1A1A1A]"} h-12 w-full placeholder-[#8d8d8d] flex items-center pl-6 text-xl rounded-md border-2 border-[#c6c6c6] text-white focus:outline-none focus:ring-0 focus:border-slate-100`}
+                      className={`${emailError ? "bg-[#3c0000] input-error" : "bg-[#1A1A1A]"} h-12 w-full placeholder-[#8d8d8d] flex items-center lg:px-6 md:px-4 sm:px-3 xss:px-[0.78rem] md:text-xl xs:text-lg xss:text-base rounded-md border-2 border-[#c6c6c6] text-white focus:outline-none focus:ring-0 focus:border-slate-100`}
                     />
                   </div>
                 </div>
@@ -145,13 +187,13 @@ const Landing = () => {
                     value={message}
                     onClick={() => setMessageError(false)}
                     onChange={(e) => setMessage(e.target.value)}
-                    className={`${messageError ? "bg-[#3c0000] input-error" : "bg-[#1A1A1A]"} h-48 w-full placeholder-[#8d8d8d] flex items-center pl-6 pt-4 text-xl rounded-md border-2 border-[#c6c6c6] text-white focus:outline-none focus:ring-0 focus:border-slate-100 resize-none`}
+                    className={`${messageError ? "bg-[#3c0000] input-error" : "bg-[#1A1A1A]"} h-48 w-full placeholder-[#8d8d8d] flex items-center lg:px-6 md:px-4 sm:px-3 xss:px-[0.78rem] md:pt-4 sm:pt-3 xss:pt-2 md:text-xl xs:text-lg xss:text-base rounded-md border-2 border-[#c6c6c6] text-white focus:outline-none focus:ring-0 focus:border-slate-100 resize-none`}
                   ></textarea>
                 </div>
                 <div className='mt-5'>
-                  <button className='flex items-center gap-[0.4rem] font-pop text-xl px-[1.7rem] py-[0.4rem] bg-[#ffffff] text-black rounded-md overflow-hidden hover:bg-[#f1f1f1] transition-all hover:scale-[1.01] ease-in-out text-btn'>
+                  <button onClick={handleSubmit} className='flex items-center gap-[0.4rem] font-pop text-xl px-[1.7rem] py-[0.4rem] bg-[#ffffff] text-black rounded-md overflow-hidden hover:bg-[#f1f1f1] transition-all hover:scale-[1.01] ease-in-out text-btn'>
                     Send Message
-                    <i class={`${submitted ? "ri-check-fill" : "ri-arrow-right-up-line"} text-black translate-y-[0.1rem] font-medium`}></i>
+                    <i className={`${submitted ? "ri-check-fill" : "ri-arrow-right-up-line"} text-black translate-y-[0.1rem] font-medium`}></i>
                   </button>
                 </div>
               </div>

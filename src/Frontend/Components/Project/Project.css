@@ -1,3 +1,4 @@
-h1 {
-  text-decoration-color: #fff; /* or any other color you prefer */
+.link-hover:hover .link-text {
+  text-decoration: underline;
+  text-decoration-color: white;
 }
