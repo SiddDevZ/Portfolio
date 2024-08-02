@@ -99,7 +99,7 @@ const Landing = () => {
                 <i className="ri-twitter-x-line text-[1.31rem] text-[#F2F2F2]"></i>
                 <p className=' text-[#F2F2F2] group-hover:underline'>Twitter</p>
               </a>
-              <a href="https://discordapp.com/users/27335278144284262" target="_blank" rel="noopener noreferrer" className='flex mr-[1rem] items-center gap-[0.35rem] group hover:cursor-pointer'>
+              <a href="https://discordapp.com/users/273352781442842624" target="_blank" rel="noopener noreferrer" className='flex mr-[1rem] items-center gap-[0.35rem] group hover:cursor-pointer'>
                 <i className="ri-discord-fill text-2xl text-[#F2F2F2]"></i>
                 <p className=' text-[#F2F2F2] group-hover:underline'>Discord</p>
               </a>
@@ -117,8 +117,8 @@ const Landing = () => {
             </div>
 
             <div className='projects pt-9 flex md:gap-6 sm:gap-4 xs:gap-2 xs:flex-nowrap xss:flex-wrap justify-center'>
-              <Project title={"Bantr - Chatting App"} image="bantr.webp" link={"https://google.com"} lang={["React", "Node.js", "Express", "SocketIO", "MongoDB"]} description={"Real-Time chatting app similar to Discord. Servers, channels, direct messages, and much more.."} workInProgress={true}/>
-              <Project title={"CandlynAI - AI ChatBot"} image="candlyn.webp" link={"https://google.com"} lang={["React", "Node.js", "Express", "Apis", "MongoDB"]} description={"Interactive ChatBot, Powered by Meta's Llama model, with a visually appealing and Responsive interface."}/>
+              <Project title={"Bantr - Chatting App"} image="bantr.webp" link={"https://bantr-omega.vercel.app/"} lang={["React", "Node.js", "Express", "SocketIO", "MongoDB"]} description={"Real-Time chatting app similar to Discord. Servers, channels, direct messages, and much more.."} workInProgress={true}/>
+              <Project title={"CandlynAI - AI ChatBot"} image="candlyn.webp" link={"https://candlyn-ai.vercel.app/"} lang={["React", "Node.js", "Express", "Apis", "MongoDB"]} description={"Interactive ChatBot, Powered by Meta's Llama model, with a visually appealing and Responsive interface."}/>
             </div>
           </div>
 

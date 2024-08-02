@@ -4,7 +4,7 @@ import './NavBar.css'
 const NavBar = ({ handleContactClick }) => {
   return (
     <div className='lg:flex xss:hidden py-4 nav px-7 sm:px-6 lg:px-[8rem] justify-between items-center'>
-      <h1 className='font-robot text-lg sm:text-xl'>&lt;/SiddZ&gt;</h1>
+      <h1 className='font-robot text-lg sm:text-xl cursor-default'>&lt;/SiddZ&gt;</h1>
       <div className='flex gap-4 sm:gap-6 lg:gap-[3.15rem] items-center'>
         {/* <h1 className='font-inter text-[#ffffff] text-base sm:text-lg xl:text-xl cursor-pointer hover-underline-animation'>About</h1> */}
         {/* <h1 className='font-inter text-[#FFFFFF] text-base sm:text-lg xl:text-xl cursor-pointer hover-underline-animation'>Projects</h1> */}
