@@ -91,3 +91,7 @@
   transform: scaleX(1);
   transform-origin: bottom left;
 } 
+
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}

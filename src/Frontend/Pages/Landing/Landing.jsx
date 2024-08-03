@@ -27,8 +27,39 @@ const Landing = () => {
     }
   }
 
+  const isValidEmail = (email) => {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  };  
+
   const handleSubmit = async (e) => {
     if (submitted === true) {return}
+    let hasError = false;
+
+    setNameError(false);
+    setEmailError(false);
+    setMessageError(false);
+  
+    await new Promise(resolve => setTimeout(resolve, 0));
+      
+    if (name.length < 3 || name.length > 50) {
+      setNameError(true);
+      hasError = true;
+    }
+    if (!isValidEmail(email)) {
+      setEmailError(true);
+      hasError = true;
+    }
+    if (message.length < 10 || message.length > 500) {
+      setMessageError(true);
+      hasError = true;
+    }
+    
+    if (hasError) {
+      return;
+    }
+
+
     var data = {
       service_id: 'service_5lt93fb',
       template_id: 'template_cxxitvt',
@@ -78,12 +109,12 @@ const Landing = () => {
             <div className='flex gap-2 mt-[0.15rem]'>
               <div className='flex flex-wrap gap-[0.35rem]'>
               <p className='text-[#F2F2F2] font-pop font-medium xs:text-lg xss:text-[1.09rem] whitespace-nowrap'>My main tech stack is</p>
-                <TechStack url={"react.webp"} name={"React"} />
-                <TechStack url={"nodejs.webp"} name={"NodeJS"} />
+                <TechStack url={"react.svg"} name={"React"} />
+                <TechStack url={"nodejs.svg"} name={"NodeJS"} />
                 <TechStack url={"mongo.webp"} name={"MongoDB"} />
-                <TechStack url={"git.webp"} name={"Git"} />
-                <TechStack url={"tailwind.webp"} name={"Tailwind"} />
-                <TechStack url={"python.webp"} name={"Python"} />
+                <TechStack url={"git.svg"} name={"Git"} />
+                <TechStack url={"tailwind.svg"} name={"Tailwind"} />
+                <TechStack url={"python.svg"} name={"Python"} />
               </div>
             </div>
             <p className='mt-7 tracking-wide text-[#F2F2F2] font-pop font-light xs:text-lg xss:text-[1.09rem]'>If you want me to redesign your website, or make you a new one, feel free to contact me, and we can discuss about it together. </p>
