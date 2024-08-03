@@ -1,10 +1,10 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, Suspense } from 'react';
 import './Landing.css';
 // import ParticlesComponent from '../../Components/Particles/Particles';
 import NavBar from '../../Components/NavBar/NavBar'
 import TechStack from '../../Components/TechStack/TechStack'
 import 'remixicon/fonts/remixicon.css'
-import Project from '../../Components/Project/Project';
+const Project = React.lazy(() => import('../../Components/Project/Project'));
 import { Toaster, toast } from "sonner";
 import axios from 'axios';
 
@@ -117,8 +117,10 @@ const Landing = () => {
             </div>
 
             <div className='projects pt-9 flex md:gap-6 sm:gap-4 xs:gap-2 xs:flex-nowrap xss:flex-wrap justify-center'>
-              <Project title={"Bantr - Chatting App"} image="bantr.webp" link={"https://bantr-omega.vercel.app/"} lang={["React", "Node.js", "Express", "SocketIO", "MongoDB"]} description={"Real-Time chatting app similar to Discord. Servers, channels, direct messages, and much more.."} workInProgress={true}/>
-              <Project title={"CandlynAI - AI ChatBot"} image="candlyn.webp" link={"https://candlyn-ai.vercel.app/"} lang={["React", "Node.js", "Express", "Apis", "MongoDB"]} description={"Interactive ChatBot, Powered by Meta's Llama model, with a visually appealing and Responsive interface."}/>
+              <Suspense fallback={<div>Loading...</div>}>
+                <Project title={"Bantr - Chatting App"} image="bantr.webp" link={"https://bantr-omega.vercel.app/"} lang={["React", "Node.js", "Express", "SocketIO", "MongoDB"]} description={"Real-Time chatting app similar to Discord. Servers, channels, direct messages, and much more.."} workInProgress={true}/>
+                <Project title={"CandlynAI - AI ChatBot"} image="candlyn.webp" link={"https://candlyn-ai.vercel.app/"} lang={["React", "Node.js", "Express", "Apis", "MongoDB"]} description={"Interactive ChatBot, Powered by Meta's Llama model, with a visually appealing and Responsive interface."}/>
+              </Suspense>
             </div>
           </div>
 
