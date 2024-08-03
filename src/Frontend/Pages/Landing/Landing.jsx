@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import './Landing.css';
-import ParticlesComponent from '../../Components/Particles/Particles';
+// import ParticlesComponent from '../../Components/Particles/Particles';
 import NavBar from '../../Components/NavBar/NavBar'
 import TechStack from '../../Components/TechStack/TechStack'
 import 'remixicon/fonts/remixicon.css'
@@ -18,7 +18,7 @@ const Landing = () => {
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  const memoizedParticles = useMemo(() => <ParticlesComponent />, []);
+  // const memoizedParticles = useMemo(() => <ParticlesComponent />, []);
   
   const handleContactClick = () => {
     const contact = document.getElementById("contact");
@@ -60,9 +60,9 @@ const Landing = () => {
   return (
     <>
       <div className="full-screen">
-        <div className='-z-10'>
+        {/* <div className='-z-10'>
           {memoizedParticles}
-        </div>
+        </div> */}
         <Toaster richColors theme="dark" />
       </div>
       <NavBar handleContactClick={handleContactClick} />
