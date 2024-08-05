@@ -8,7 +8,20 @@
   background-color: black;
   z-index: -1;
 }
-  
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  animation: spin 0.5s linear infinite;
+}
+
 .main-area {
   backdrop-filter: blur(0.9px); 
   background-color: transparent;

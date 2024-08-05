@@ -1,15 +1,14 @@
-import React, { useState, Suspense } from 'react';
-import './Landing.css';
+import React, { useState, Suspense } from "react";
+import "./Landing.css";
 // import ParticlesComponent from '../../Components/Particles/Particles';
-import NavBar from '../../Components/NavBar/NavBar'
-import TechStack from '../../Components/TechStack/TechStack'
-import 'remixicon/fonts/remixicon.css'
-const Project = React.lazy(() => import('../../Components/Project/Project'));
+import NavBar from "../../Components/NavBar/NavBar";
+import TechStack from "../../Components/TechStack/TechStack";
+import "remixicon/fonts/remixicon.css";
+const Project = React.lazy(() => import("../../Components/Project/Project"));
 import { Toaster, toast } from "sonner";
-import axios from 'axios';
+import axios from "axios";
 
 const Landing = () => {
-
   const [nameError, setNameError] = useState(false);
   const [name, setName] = useState("");
   const [emailError, setEmailError] = useState(false);
@@ -17,31 +16,37 @@ const Landing = () => {
   const [messageError, setMessageError] = useState(false);
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitLoading, setSubmitLoading] = useState(false);
 
   // const memoizedParticles = useMemo(() => <ParticlesComponent />, []);
-  
+
   const handleContactClick = () => {
     const contact = document.getElementById("contact");
     if (contact) {
-      contact.scrollIntoView({ behavior: 'smooth' });
+      contact.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   const isValidEmail = (email) => {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
-  };  
+  };
 
   const handleSubmit = async (e) => {
-    if (submitted === true) {return}
+    if (submitted === true) {
+      return;
+    }
     let hasError = false;
 
     setNameError(false);
     setEmailError(false);
     setMessageError(false);
-  
-    await new Promise(resolve => setTimeout(resolve, 0));
-      
+
+    setSubmitLoading(true);
+
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
     if (name.length < 3 || name.length > 50) {
       setNameError(true);
       hasError = true;
@@ -54,38 +59,43 @@ const Landing = () => {
       setMessageError(true);
       hasError = true;
     }
-    
+
     if (hasError) {
+      setSubmitLoading(false);
       return;
     }
 
-
     var data = {
-      service_id: 'service_5lt93fb',
-      template_id: 'template_cxxitvt',
-      user_id: 'LkCnVmcFfXTXGYbVF',
+      service_id: "service_5lt93fb",
+      template_id: "template_cxxitvt",
+      user_id: "LkCnVmcFfXTXGYbVF",
       template_params: {
-          'from_name': name,
-          'to_name': 'Siddharth',
-          'email_id': email,
-          'message': message
-      }
+        from_name: name,
+        to_name: "Siddharth",
+        email_id: email,
+        message: message,
+      },
     };
 
-    axios.post('https://api.emailjs.com/api/v1.0/email/send', data)
-    .then(() => {
-      toast.success("Message Sent!", { position: "bottom-right" });
-      setSubmitted(true);
-      setName('');
-      setEmail('');
-      setMessage('');
-      setTimeout(() => {
-        setSubmitted(false);
-      }, 7000)
-    })
-    .catch((error) => {
-      toast.error("Failed, Please try sending via Email!", { position: "bottom-right" });
-    });
+    axios
+      .post("https://api.emailjs.com/api/v1.0/email/send", data)
+      .then(() => {
+        toast.success("Message Sent!", { position: "bottom-right" });
+        setSubmitted(true);
+        setName("");
+        setEmail("");
+        setMessage("");
+        setSubmitLoading(false);
+        setTimeout(() => {
+          setSubmitted(false);
+        }, 7000);
+      })
+      .catch((error) => {
+        toast.error("Failed, Please try sending via Email!", {
+          position: "bottom-right",
+        });
+        setSubmitLoading(false);
+      });
   };
 
   return (
@@ -98,17 +108,40 @@ const Landing = () => {
       </div>
       <NavBar handleContactClick={handleContactClick} />
       <div className="main flex flex-col items-center px-7">
-        <div className='pt-10 max-w-[52rem] main-area mb-5'>
-          <div className='sec-1'>
-            <h1 className='sm:text-[2.4rem] xs:text-[1.85rem] xss:text-[2rem] sm:leading-[3.4rem] xs:leading-[2.9rem] xss:leading-[2.5rem] xs:mb-0 xss:mb-[0.4rem] font-pop font-extrabold'>Hey, I'm <br className='xs:hidden xss:block' /><span className='bg-gradient-to-r from-[#FCCF31] to-[#F55555] text-transparent bg-clip-text'>Siddharth Jorwal</span></h1>
-            <h2 className='font-inter md:text-2xl xss:text-[1.15rem] leading-7 font-medium text-[#e6e6e6]'>Full-Stack Web Developer, Designer, and Software Tinkerer</h2>
+        <div className="pt-10 max-w-[52rem] main-area mb-5">
+          <div className="sec-1">
+            <h1 className="sm:text-[2.4rem] xs:text-[1.85rem] xss:text-[2rem] sm:leading-[3.4rem] xs:leading-[2.9rem] xss:leading-[2.5rem] xs:mb-0 xss:mb-[0.4rem] font-pop font-extrabold">
+              Hey, I'm <br className="xs:hidden xss:block" />
+              <span className="bg-gradient-to-r from-[#FCCF31] to-[#F55555] text-transparent bg-clip-text">
+                Siddharth Jorwal
+              </span>
+            </h1>
+            <h2 className="font-inter md:text-2xl xss:text-[1.15rem] leading-7 font-medium text-[#e6e6e6]">
+              Full-Stack Web Developer, Designer, and Software Tinkerer
+            </h2>
           </div>
-          <div className='sec-2'>
-            <p className='text-[#BBBBBB] mt-8 font-pop font-medium xs:text-lg xss:text-[1.09rem] tracking-[0.015em]'>I’m Siddharth! <span className='text-[#F2F2F2]'>I have 3+ years of experience in web dev</span>, I spend most of my time in <span className='text-[#F2F2F2]'>coding and business</span>, My passion lies in dreaming ideas and bringing them to life. If this combination interests you, <span className='text-[#F2F2F2]'>feel free to connect with me!</span></p>
-            <p className='text-[#BBBBBB] mt-5 font-pop font-medium xs:text-lg xss:text-[1.09rem] tracking-wide'>Outside of programming, I enjoy doing cinematography and sports.</p>
-            <div className='flex gap-2 mt-[0.15rem]'>
-              <div className='flex flex-wrap gap-[0.35rem]'>
-              <p className='text-[#F2F2F2] font-pop font-medium xs:text-lg xss:text-[1.09rem] whitespace-nowrap'>My main tech stack is</p>
+          <div className="sec-2">
+            <p className="text-[#BBBBBB] mt-8 font-pop font-medium xs:text-lg xss:text-[1.09rem] tracking-[0.015em]">
+              I’m Siddharth!{" "}
+              <span className="text-[#F2F2F2]">
+                I have 3+ years of experience in web dev
+              </span>
+              , I spend most of my time in{" "}
+              <span className="text-[#F2F2F2]">coding and business</span>, My
+              passion lies in dreaming ideas and bringing them to life. If this
+              combination interests you,{" "}
+              <span className="text-[#F2F2F2]">
+                feel free to connect with me!
+              </span>
+            </p>
+            <p className="text-[#BBBBBB] mt-5 font-pop font-medium xs:text-lg xss:text-[1.09rem] tracking-wide">
+              Outside of programming, I enjoy doing cinematography and sports.
+            </p>
+            <div className="flex gap-2 mt-[0.15rem]">
+              <div className="flex flex-wrap gap-[0.35rem]">
+                <p className="text-[#F2F2F2] font-pop font-medium xs:text-lg xss:text-[1.09rem] whitespace-nowrap">
+                  My main tech stack is
+                </p>
                 <TechStack url={"react.svg"} name={"React"} />
                 <TechStack url={"nodejs.svg"} name={"NodeJS"} />
                 <TechStack url={"mongo.webp"} name={"MongoDB"} />
@@ -117,56 +150,109 @@ const Landing = () => {
                 <TechStack url={"python.svg"} name={"Python"} />
               </div>
             </div>
-            <p className='mt-7 tracking-wide text-[#F2F2F2] font-pop font-light xs:text-lg xss:text-[1.09rem]'>If you want me to redesign your website, or make you a new one, feel free to contact me, and we can discuss about it together. </p>
+            <p className="mt-7 tracking-wide text-[#F2F2F2] font-pop font-light xs:text-lg xss:text-[1.09rem]">
+              If you want me to redesign your website, or make you a new one,
+              feel free to contact me, and we can discuss about it together.{" "}
+            </p>
           </div>
-          <div className='sec-3'>
-            <p className='text-[#BBBBBB] mt-5 font-pop font-medium text-lg tracking-wide'>Find me on</p>
-            <div className='socials flex flex-wrap items-center'>
-              <a href="https://github.com/SiddDevZ" target="_blank" rel="noopener noreferrer" className='flex mr-[1rem] items-center gap-[0.35rem] group hover:cursor-pointer' >
+          <div className="sec-3">
+            <p className="text-[#BBBBBB] mt-5 font-pop font-medium text-lg tracking-wide">
+              Find me on
+            </p>
+            <div className="socials flex flex-wrap items-center">
+              <a
+                href="https://github.com/SiddDevZ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex mr-[1rem] items-center gap-[0.35rem] group hover:cursor-pointer"
+              >
                 <i className="ri-github-fill text-2xl text-[#F2F2F2]"></i>
-                <p className=' text-[#F2F2F2] group-hover:underline'>GitHub</p>
+                <p className=" text-[#F2F2F2] group-hover:underline">GitHub</p>
               </a>
-              <a href="https://x.com/epicsidd" target="_blank" rel="noopener noreferrer" className='flex mr-[1rem] items-center gap-[0.35rem] group hover:cursor-pointer'>
+              <a
+                href="https://x.com/epicsidd"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex mr-[1rem] items-center gap-[0.35rem] group hover:cursor-pointer"
+              >
                 <i className="ri-twitter-x-line text-[1.31rem] text-[#F2F2F2]"></i>
-                <p className=' text-[#F2F2F2] group-hover:underline'>Twitter</p>
+                <p className=" text-[#F2F2F2] group-hover:underline">Twitter</p>
               </a>
-              <a href="https://discordapp.com/users/273352781442842624" target="_blank" rel="noopener noreferrer" className='flex mr-[1rem] items-center gap-[0.35rem] group hover:cursor-pointer'>
+              <a
+                href="https://discordapp.com/users/273352781442842624"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex mr-[1rem] items-center gap-[0.35rem] group hover:cursor-pointer"
+              >
                 <i className="ri-discord-fill text-2xl text-[#F2F2F2]"></i>
-                <p className=' text-[#F2F2F2] group-hover:underline'>Discord</p>
+                <p className=" text-[#F2F2F2] group-hover:underline">Discord</p>
               </a>
-              <a href="https://www.instagram.com/siddharth_jorwal/" target="_blank" rel="noopener noreferrer" className='flex mr-[1rem] items-center gap-[0.35rem] group hover:cursor-pointer'>
+              <a
+                href="https://www.instagram.com/siddharth_jorwal/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex mr-[1rem] items-center gap-[0.35rem] group hover:cursor-pointer"
+              >
                 <i className="ri-instagram-line text-[1.41rem] text-[#F2F2F2]"></i>
-                <p className=' text-[#F2F2F2] group-hover:underline'>Instagram</p>
+                <p className=" text-[#F2F2F2] group-hover:underline">
+                  Instagram
+                </p>
               </a>
             </div>
           </div>
 
-          <div className='sec-4 mt-6'>
+          <div className="sec-4 mt-6">
             <div className="wavy-heading inline-flex items-center">
-              <h1 className='text-[2.4rem] sm:text-[2.2rem] xs:text-[2rem] xss:text-[1.9rem] font-pop font-extrabold cursor-default'>Recent Projects</h1>
+              <h1 className="text-[2.4rem] sm:text-[2.2rem] xs:text-[2rem] xss:text-[1.9rem] font-pop font-extrabold cursor-default">
+                Recent Projects
+              </h1>
               <div className="wavy-line"></div>
             </div>
 
-            <div className='projects pt-9 flex md:gap-6 sm:gap-4 xs:gap-2 xs:flex-nowrap xss:flex-wrap justify-center'>
+            <div className="projects pt-9 flex md:gap-6 sm:gap-4 xs:gap-2 xs:flex-nowrap xss:flex-wrap justify-center">
               <Suspense fallback={<div>Loading...</div>}>
-                <Project title={"Bantr - Chatting App"} image="bantr.webp" link={"https://bantr-omega.vercel.app/"} lang={["React", "Node.js", "Express", "SocketIO", "MongoDB"]} description={"Real-Time chatting app similar to Discord. Servers, channels, direct messages, and much more.."} workInProgress={true}/>
-                <Project title={"CandlynAI - AI ChatBot"} image="candlyn.webp" link={"https://candlyn-ai.vercel.app/"} lang={["React", "Node.js", "Express", "Apis", "MongoDB"]} description={"Interactive ChatBot, Powered by Meta's Llama model, with a visually appealing and Responsive interface."}/>
+                <Project
+                  title={"Bantr - Chatting App"}
+                  image="bantr.webp"
+                  link={"https://bantr-omega.vercel.app/"}
+                  lang={["React", "Node.js", "Express", "SocketIO", "MongoDB"]}
+                  description={
+                    "Real-Time chatting app similar to Discord. Servers, channels, direct messages, and much more.."
+                  }
+                  workInProgress={true}
+                />
+                <Project
+                  title={"CandlynAI - AI ChatBot"}
+                  image="candlyn.webp"
+                  link={"https://candlyn-ai.vercel.app/"}
+                  lang={["React", "Node.js", "Express", "Apis", "MongoDB"]}
+                  description={
+                    "Interactive ChatBot, Powered by Meta's Llama model, with a visually appealing and Responsive interface."
+                  }
+                />
               </Suspense>
             </div>
           </div>
 
-          <div className='sec-5 sm:mt-10 xss:mt-8'>
-            <div className='w-full flex'>
+          <div className="sec-5 sm:mt-10 xss:mt-8">
+            <div className="w-full flex">
               <div className="wavy-heading inline-flex items-center">
-                <h1 className='text-[2.4rem] font-pop font-extrabold cursor-default'>Contact Me</h1>
+                <h1 className="text-[2.4rem] font-pop font-extrabold cursor-default">
+                  Contact Me
+                </h1>
                 <div className="wavy-line"></div>
               </div>
             </div>
-            <div className='w-full flex'>
-              <p className='mt-5 md:w-[85%] xss:w-full sm:w-full text-[#dddddd] font-pop font-medium text-lg tracking-wide'>If you have any inquiries, or if you want to hire me for any project, feel free to reach out to me, You can also contact me via email at <span className='text-[#38af23]'>siddz.dev@gmail.com</span></p>
+            <div className="w-full flex">
+              <p className="mt-5 md:w-[85%] xss:w-full sm:w-full text-[#dddddd] font-pop font-medium text-lg tracking-wide">
+                If you have any inquiries, or if you want to hire me for any
+                project, feel free to reach out to me, You can also contact me
+                via email at{" "}
+                <span className="text-[#38af23]">siddz.dev@gmail.com</span>
+              </p>
             </div>
-            <div className='mt-3 flex flex-col'>
-              <div className='inline-flex flex-col xs:mt-0 xss:mt-2 gap-1'>
+            <div className="mt-3 flex flex-col">
+              <div className="inline-flex flex-col xs:mt-0 xss:mt-2 gap-1">
                 {/* <a href="https://www.instagram.com/siddharth_jorwal/" className='flex items-center gap-[0.4rem] group hover:cursor-pointer' target="_blank" rel="noopener noreferrer">
                   <i className="ri-whatsapp-line text-[1.35rem] text-[#e6e6e6]"></i>
                   <h1 className='underline decoration-[0.2px] -translate-y-[0.1rem] text-[#f1f1f1] text-base underline-offset-4 group-hover:decoration-[#34c31e] transition-all duration-100'>Message me on Whatsapp</h1>
@@ -180,38 +266,51 @@ const Landing = () => {
                   <h1 className='decoration-[0.2px] -translate-y-[0.1rem] text-black text-base underline-offset-4 group-hover:decoration-[#34c31e] transition-all duration-100'>Whatsapp</h1>
                 </button> */}
               </div>
-              <div className='contact-form mt-2' id='contact'>
-                <div className='contact-sec-1 w-full flex justify-between'>
-                  <div className='contact-input w-[40%]'>
-                    <label className="block mb-[0.4rem] text-sm font-semibold" htmlFor="Name">
+              <div className="contact-form mt-2" id="contact">
+                <div className="contact-sec-1 w-full flex justify-between">
+                  <div className="contact-input w-[40%]">
+                    <label
+                      className="block mb-[0.4rem] text-sm font-semibold"
+                      htmlFor="Name"
+                    >
                       Your Name
                     </label>
-                    <input 
+                    <input
                       id="Name"
                       placeholder="John Doe"
                       value={name}
                       onClick={() => setNameError(false)}
                       onChange={(e) => setName(e.target.value)}
-                      className={`${nameError ? "bg-[#3c0000] input-error" : "bg-[#1A1A1A]"} h-12 w-full placeholder-[#8d8d8d] flex items-center lg:px-6 md:px-4 sm:px-3 xss:px-[0.78rem] md:text-xl xs:text-lg xss:text-base rounded-md border-2 border-[#c6c6c6] text-white focus:outline-none focus:ring-0 focus:border-slate-100`}
+                      className={`${
+                        nameError ? "bg-[#3c0000] input-error" : "bg-[#1A1A1A]"
+                      } h-12 w-full placeholder-[#8d8d8d] flex items-center lg:px-6 md:px-4 sm:px-3 xss:px-[0.78rem] md:text-xl xs:text-lg xss:text-base rounded-md border-2 border-[#c6c6c6] text-white focus:outline-none focus:ring-0 focus:border-slate-100`}
                     />
                   </div>
-                  <div className='contact-input w-[57%]'>
-                    <label className="block mb-[0.4rem] text-sm font-semibold" htmlFor="email">
+                  <div className="contact-input w-[57%]">
+                    <label
+                      className="block mb-[0.4rem] text-sm font-semibold"
+                      htmlFor="email"
+                    >
                       Email
                     </label>
-                    <input 
+                    <input
                       id="email"
                       type="email"
                       placeholder="Johndoe@gmail.com"
                       value={email}
                       onClick={() => setEmailError(false)}
                       onChange={(e) => setEmail(e.target.value)}
-                      className={`${emailError ? "bg-[#3c0000] input-error" : "bg-[#1A1A1A]"} h-12 w-full placeholder-[#8d8d8d] flex items-center lg:px-6 md:px-4 sm:px-3 xss:px-[0.78rem] md:text-xl xs:text-lg xss:text-base rounded-md border-2 border-[#c6c6c6] text-white focus:outline-none focus:ring-0 focus:border-slate-100`}
+                      className={`${
+                        emailError ? "bg-[#3c0000] input-error" : "bg-[#1A1A1A]"
+                      } h-12 w-full placeholder-[#8d8d8d] flex items-center lg:px-6 md:px-4 sm:px-3 xss:px-[0.78rem] md:text-xl xs:text-lg xss:text-base rounded-md border-2 border-[#c6c6c6] text-white focus:outline-none focus:ring-0 focus:border-slate-100`}
                     />
                   </div>
                 </div>
-                <div className='contact-sec-2 mt-4'>
-                  <label className="block mb-[0.4rem] text-sm font-semibold" htmlFor="message">
+                <div className="contact-sec-2 mt-4">
+                  <label
+                    className="block mb-[0.4rem] text-sm font-semibold"
+                    htmlFor="message"
+                  >
                     Message
                   </label>
                   <textarea
@@ -220,13 +319,33 @@ const Landing = () => {
                     value={message}
                     onClick={() => setMessageError(false)}
                     onChange={(e) => setMessage(e.target.value)}
-                    className={`${messageError ? "bg-[#3c0000] input-error" : "bg-[#1A1A1A]"} h-48 w-full placeholder-[#8d8d8d] flex items-center lg:px-6 md:px-4 sm:px-3 xss:px-[0.78rem] md:pt-4 sm:pt-3 xss:pt-2 md:text-xl xs:text-lg xss:text-base rounded-md border-2 border-[#c6c6c6] text-white focus:outline-none focus:ring-0 focus:border-slate-100 resize-none`}
+                    className={`${
+                      messageError ? "bg-[#3c0000] input-error" : "bg-[#1A1A1A]"
+                    } h-48 w-full placeholder-[#8d8d8d] flex items-center lg:px-6 md:px-4 sm:px-3 xss:px-[0.78rem] md:pt-4 sm:pt-3 xss:pt-2 md:text-xl xs:text-lg xss:text-base rounded-md border-2 border-[#c6c6c6] text-white focus:outline-none focus:ring-0 focus:border-slate-100 resize-none`}
                   ></textarea>
                 </div>
-                <div className='mt-5'>
-                  <button onClick={handleSubmit} className='flex items-center gap-[0.4rem] font-pop text-xl px-[1.7rem] py-[0.4rem] bg-[#ffffff] text-black rounded-md overflow-hidden hover:bg-[#f1f1f1] transition-all hover:scale-[1.01] ease-in-out text-btn'>
-                    Send Message
-                    <i className={`${submitted ? "ri-check-fill" : "ri-arrow-right-up-line"} text-black translate-y-[0.1rem] font-medium`}></i>
+                <div className="mt-5">
+                  <button
+                    onClick={handleSubmit}
+                    className="flex items-center gap-[0.4rem] font-pop text-xl px-[1.7rem] py-[0.4rem] bg-[#ffffff] text-black rounded-md overflow-hidden hover:bg-[#f1f1f1] transition-all hover:scale-[1.01] ease-in-out text-btn"
+                  >
+                    {submitLoading ? (
+                      <>
+                        <span className="text-black">Loading...</span>
+                        <div className="spin">
+                          <i className="ri-loader-fill text-black"></i>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <span className="text-black">Send Message</span>
+                        <i
+                          className={`${
+                            submitted ? "ri-check-fill" : "ri-arrow-right-up-line"
+                          } text-black translate-y-[0.1rem] font-medium`}
+                        ></i>
+                      </>
+                    )}
                   </button>
                 </div>
               </div>
@@ -234,8 +353,10 @@ const Landing = () => {
           </div>
 
           <div>
-            <div className='h-[1.1px] w-full bg-[#3f3f3f] mt-24 mb-2'></div>
-            <p className='font-pop text-xs text-[#a8a8a8]'>© 2024 Design and Developed by Siddharth Jorwal</p>
+            <div className="h-[1.1px] w-full bg-[#3f3f3f] mt-24 mb-2"></div>
+            <p className="font-pop text-xs text-[#a8a8a8]">
+              © 2024 Design and Developed by Siddharth Jorwal
+            </p>
           </div>
         </div>
       </div>
