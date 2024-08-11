@@ -214,7 +214,7 @@ const Landing = () => {
                 <Project
                   title={"Bantr - Chatting App"}
                   image="bantr.webp"
-                  link={"https://bantr-omega.vercel.app/"}
+                  link={"https://bantr.siddz.com"}
                   lang={["React", "Node.js", "Express", "SocketIO", "MongoDB"]}
                   description={
                     "Real-Time chatting app similar to Discord. Servers, channels, direct messages, and much more.."
@@ -224,7 +224,7 @@ const Landing = () => {
                 <Project
                   title={"CandlynAI - AI ChatBot"}
                   image="candlyn.webp"
-                  link={"https://candlyn-ai.vercel.app/"}
+                  link={"https://candlyn.siddz.com"}
                   lang={["React", "Node.js", "Express", "Apis", "MongoDB"]}
                   description={
                     "Interactive ChatBot, Powered by Meta's Llama model, with a visually appealing and Responsive interface."
