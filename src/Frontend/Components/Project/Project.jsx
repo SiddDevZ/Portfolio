@@ -1,5 +1,5 @@
 import React from 'react';
-
+//million-ignore
 const Project = ({ title, image, description, link, lang, workInProgress }) => {
   return (
     <div className="max-w-[25rem] xs:mb-0 xss:mb-7">
