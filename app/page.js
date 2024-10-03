@@ -1,6 +1,6 @@
 import Image from "next/image";
 import "./Landing.css";
-import Particles from './Components/Particles/Particles';
+import Particles from "./Components/Particles/Particles";
 import NavBar from "./Components/NavBar/NavBar";
 import TechStack from "./Components/TechStack/TechStack";
 import "remixicon/fonts/remixicon.css";
@@ -9,7 +9,6 @@ import ContactForm from "./Components/ContactForm/ContactForm";
 import { Toaster, toast } from "sonner";
 
 export default function Home() {
-
   return (
     <>
       <div className="full-screen">
