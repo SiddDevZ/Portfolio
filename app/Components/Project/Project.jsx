@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 const Project = ({ title, image, description, link, lang, workInProgress }) => {
   return (

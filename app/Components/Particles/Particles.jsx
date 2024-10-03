@@ -1,3 +1,4 @@
+'use client'
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { useEffect, useMemo, useState } from "react";
 import { loadSlim } from "@tsparticles/slim";
@@ -524,4 +525,14 @@ const ParticlesComponent = (props) => {
   return <Particles id={props.id} init={particlesLoaded} options={options} />;
 };
 
-export default ParticlesComponent;
+const Particless = () => {
+  const memoizedParticles = useMemo(() => <ParticlesComponent />, []);
+
+  return (
+    <div className='-z-10'>
+      {memoizedParticles}
+    </div>
+  )
+}
+
+export default Particless;

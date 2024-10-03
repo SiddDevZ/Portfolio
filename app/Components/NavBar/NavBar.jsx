@@ -1,7 +1,16 @@
+'use client'
 import React from 'react'
 import './NavBar.css'
 
-const NavBar = ({ handleContactClick }) => {
+const NavBar = () => {
+  
+  const handleContactClick = () => {
+    const contact = document.getElementById("contact");
+    if (contact) {
+      contact.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className='lg:flex xss:hidden py-4 nav px-7 sm:px-6 lg:px-[8rem] justify-between items-center'>
       
