@@ -113,7 +113,7 @@ const Landing = () => {
             <h1 className="sm:text-[2.4rem] xs:text-[1.85rem] xss:text-[2rem] sm:leading-[3.4rem] xs:leading-[2.9rem] xss:leading-[2.5rem] xs:mb-0 xss:mb-[0.4rem] font-pop font-extrabold">
               Hey, I'm <br className="xs:hidden xss:block" />
               <span className="bg-gradient-to-r from-[#FCCF31] to-[#F55555] text-transparent bg-clip-text">
-                Siddharth Jorwal
+                Siddharth Meena
               </span>
             </h1>
             <h2 className="font-inter md:text-2xl xss:text-[1.15rem] leading-7 font-medium text-[#e6e6e6]">
@@ -122,7 +122,7 @@ const Landing = () => {
           </div>
           <div className="sec-2">
             <p className="text-[#BBBBBB] mt-8 font-pop font-medium xs:text-lg xss:text-[1.09rem] tracking-[0.015em]">
-              I’m Siddharth!{" "}
+              I'm Siddharth!{" "}
               <span className="text-[#F2F2F2]">
                 I have 3+ years of experience in web dev
               </span>
@@ -142,10 +142,11 @@ const Landing = () => {
                 <p className="text-[#F2F2F2] font-pop font-medium xs:text-lg xss:text-[1.09rem] whitespace-nowrap">
                   My main tech stack is
                 </p>
+                <TechStack url={"nextjs.svg"} name={"Next.js"} />
                 <TechStack url={"react.svg"} name={"React"} />
                 <TechStack url={"nodejs.svg"} name={"NodeJS"} />
                 <TechStack url={"mongo.webp"} name={"MongoDB"} />
-                <TechStack url={"git.svg"} name={"Git"} />
+                {/* <TechStack url={"git.svg"} name={"Git"} /> */}
                 <TechStack url={"tailwind.svg"} name={"Tailwind"} />
                 <TechStack url={"python.svg"} name={"Python"} />
               </div>
@@ -209,7 +210,7 @@ const Landing = () => {
               <div className="wavy-line"></div>
             </div>
 
-            <div className="projects pt-9 flex md:gap-6 sm:gap-4 xs:gap-2 xs:flex-nowrap xss:flex-wrap justify-center">
+            <div className="projects pt-9 grid grid-cols-1 sm:grid-cols-2 gap-6">
               <Suspense fallback={<div>Loading...</div>}>
                 <Project
                   title={"Bantr - Chatting App"}
@@ -228,6 +229,15 @@ const Landing = () => {
                   lang={["React", "Node.js", "Express", "Apis", "MongoDB"]}
                   description={
                     "Interactive ChatBot, Powered by Meta's Llama model, with a visually appealing and Responsive interface."
+                  }
+                />
+                <Project
+                  title={"Luvo Web"}
+                  image="luvo-dark.webp"
+                  link={"https://luvo.siddz.com"}
+                  lang={["React", "TailwindCSS", "Vite", "Figma"]}
+                  description={
+                    "Luvo Web is an web development agency focused on crafting responsive and engaging websites."
                   }
                 />
               </Suspense>
@@ -355,7 +365,7 @@ const Landing = () => {
           <div>
             <div className="h-[1.1px] w-full bg-[#3f3f3f] mt-24 mb-2"></div>
             <p className="font-pop text-xs text-[#a8a8a8]">
-              © 2024 Design and Developed by Siddharth Jorwal
+              © 2024 Design and Developed by Siddharth Meena
             </p>
           </div>
         </div>
