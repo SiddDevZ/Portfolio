@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
+  useFileSystemPublicRoutes: true, // Set to false if you want to disable the App Router
 }
 
 module.exports = nextConfig
