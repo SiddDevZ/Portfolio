@@ -1,18 +1,20 @@
-import "./globals.css";
+import { Inter } from 'next/font/google'
+import './globals.css'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: "Siddharth Meena",
-  description: "My personal portfolio that showcases my skills and projects.",
-};
+  title: 'Siddharth Meena',
+  description: 'Full-Stack Web Developer, Designer, and Software Tinkerer',
+}
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`antialiased`}
-      >
-        {children}
-      </body>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
+      <body className={inter.className}>{children}</body>
     </html>
-  );
+  )
 }

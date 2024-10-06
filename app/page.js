@@ -133,9 +133,9 @@ export default function Home() {
                 workInProgress={true}
               />
               <Project
-                title={"CandlynAI - AI ChatBot"}
-                image="candlyn.webp"
-                link={"https://candlyn.siddz.com"}
+                title={"ZenosAI - AI ChatBot"}
+                image="zenos.webp"
+                link={"https://zenos.siddz.com"}
                 lang={["React", "Node.js", "Express", "Apis", "MongoDB"]}
                 description={
                   "Interactive ChatBot, Powered by Meta's Llama model, with a visually appealing and Responsive interface."
