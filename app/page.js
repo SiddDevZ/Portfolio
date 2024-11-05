@@ -130,7 +130,7 @@ export default function Home() {
                 description={
                   "Real-Time chatting app similar to Discord. Servers, channels, direct messages, and much more.."
                 }
-                workInProgress={true}
+                // workInProgress={true}
               />
               <Project
                 title={"ZenosAI - AI ChatBot"}
