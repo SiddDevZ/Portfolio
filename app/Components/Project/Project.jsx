@@ -1,12 +1,16 @@
 import React from 'react'
 import Image from 'next/image'
 
-const Project = ({ title, image, description, link, lang, workInProgress }) => {
+const Project = ({ title, image, description, link, lang, workInProgress, onHover, onLeave }) => {
   return (
-    <div className='max-w-[25rem] xs:mb-0 xss:mb-7'>
+    <div 
+      className='max-w-[25rem] xs:mb-0 xss:mb-7 cursor-pointer'
+      onMouseEnter={onHover}
+      onMouseLeave={onLeave}
+    >
       <img src={`/${image}`} alt="" className='object-cover rounded-md' />
       <h1 className='md:text-[1.5rem] sm:text-[3.2vw] xs:text-[3.1vw] xss:text-[1.5rem] leading-8 md:mt-4 sm:mt-[0.6rem] xs:mt-[0.5rem] xss:mt-4 font-pop font-bold text-[#E4E4E4]'>{title}</h1>
-      <p className='bg-gradient-to-r cursor-default md:text-sm sm:text-[2vw] xs:text-[1.9vw] xss:text-[0.82rem] sm:leading-4 xs:leading-3 opacity-90 from-[#9BE15D] to-[#00E3AE] text-transparent bg-clip-text'>
+      <p className='bg-gradient-to-r cursor-pointer md:text-sm sm:text-[2vw] xs:text-[1.9vw] xss:text-[0.82rem] sm:leading-4 xs:leading-3 opacity-90 from-[#9BE15D] to-[#00E3AE] text-transparent bg-clip-text'>
         {lang.map((language, index) => (
           <React.Fragment key={index}>
             {language}

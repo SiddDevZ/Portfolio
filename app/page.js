@@ -4,7 +4,7 @@ import Particles from "./Components/Particles/Particles";
 import NavBar from "./Components/NavBar/NavBar";
 import TechStack from "./Components/TechStack/TechStack";
 import "remixicon/fonts/remixicon.css";
-import Project from "./Components/Project/Project";
+import Projects from "./Components/Project/Projects";
 import ContactForm from "./Components/ContactForm/ContactForm";
 import { Toaster, toast } from "sonner";
 
@@ -19,7 +19,7 @@ export default function Home() {
       </div>
       <NavBar />
       <div className="main flex flex-col items-center px-7">
-        <div className="pt-10 max-w-[52rem] main-area mb-5">
+        <div className="pt-14 max-w-[52rem] main-area mb-5">
           <div className="sec-1">
             <h1 className="sm:text-[2.4rem] xs:text-[1.85rem] xss:text-[2rem] sm:leading-[3.4rem] xs:leading-[2.9rem] xss:leading-[2.5rem] xs:mb-0 xss:mb-[0.4rem] font-pop font-extrabold">
               Hey, I'm <br className="xs:hidden xss:block" />
@@ -99,7 +99,7 @@ export default function Home() {
                 <i className="ri-discord-fill text-2xl text-[#F2F2F2]"></i>
                 <p className=" text-[#F2F2F2] group-hover:underline">Discord</p>
               </a>
-              <a
+              {/* <a
                 href="https://www.instagram.com/siddharth_jorwal/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -109,7 +109,7 @@ export default function Home() {
                 <p className=" text-[#F2F2F2] group-hover:underline">
                   Instagram
                 </p>
-              </a>
+              </a> */}
             </div>
           </div>
 
@@ -121,7 +121,7 @@ export default function Home() {
               <div className="wavy-line"></div>
             </div>
 
-            <div className="projects pt-9 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {/* <div className="projects pt-9 grid grid-cols-1 sm:grid-cols-2 gap-6">
               <Project
                 title={"Bantr - Chatting App"}
                 image="bantr.webp"
@@ -150,7 +150,8 @@ export default function Home() {
                   "Luvo Web is an web development agency focused on crafting responsive and engaging websites."
                 }
               />
-            </div>
+            </div> */}
+            <Projects />
           </div>
 
           <div className="sec-5 sm:mt-10 xss:mt-8">
