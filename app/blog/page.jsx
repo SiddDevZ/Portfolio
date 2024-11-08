@@ -46,9 +46,9 @@ const PageName = () => {
         <div className="mx-auto max-w-6xl">
           <header className="mb-12">
             <h1 className="mb-3 text-3xl font-bold">
-              <span className="bg-gradient-to-r from-[#37C351] to-[#3DC29A] bg-clip-text text-transparent">Blogs</span>{" "}
+              <span className="bg-gradient-to-r from-[#FAD961] to-[#F76B1C] bg-clip-text text-transparent">Blogs</span>{" "}
               <span className="text-neutral-400">—</span>{" "}
-              <span className="bg-gradient-to-r from-purple-500 to-orange-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#8E2DE2] to-[#FF2B56] bg-clip-text text-transparent">
                 Development Insights
               </span>
             </h1>

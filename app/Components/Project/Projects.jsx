@@ -38,7 +38,7 @@ const Projects = () => {
     timeoutRef.current = setTimeout(() => {
       setHoveredIndex(null);
       setIsTransitioning(false);
-    }, 100); // 300ms matches the transition duration
+    }, 100);
   };
 
   useEffect(() => {
@@ -67,6 +67,7 @@ const Projects = () => {
           }
           onHover={() => handleHover(0)}
           onLeave={handleLeave}
+          blog={"/blog/making-of-bantr"}
         />
         <Project
           title={"ZenosAI - AI ChatBot"}
@@ -78,6 +79,7 @@ const Projects = () => {
           }
           onHover={() => handleHover(1)}
           onLeave={handleLeave}
+          blog={"no"}
         />
         <Project
           title={"Luvo Web"}
@@ -89,6 +91,7 @@ const Projects = () => {
           }
           onHover={() => handleHover(2)}
           onLeave={handleLeave}
+          blog={"no"}
         />
       </div>
     </div>

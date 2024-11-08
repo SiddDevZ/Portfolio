@@ -1,12 +1,27 @@
 import React from 'react'
 import Image from 'next/image'
+import { Toaster, toast } from "sonner";
+import { useRouter } from 'next/navigation';
 
-const Project = ({ title, image, description, link, lang, workInProgress, onHover, onLeave }) => {
+const Project = ({ title, image, description, link, lang, workInProgress, onHover, onLeave, blog }) => {
+  const router = useRouter();
+
+  const redirect = (site) => {
+    if (blog === "no"){
+      toast.warning(`I don't have a blog for that yet.`, {
+        position: "bottom-right",
+      });
+    } else {
+      router.push(blog);
+    }
+  }
+
   return (
     <div 
       className='max-w-[25rem] xs:mb-0 xss:mb-7 cursor-pointer'
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
+      onClick={() => redirect('no')}
     >
       <img src={`/${image}`} alt="" className='object-cover rounded-md' />
       <h1 className='md:text-[1.5rem] sm:text-[3.2vw] xs:text-[3.1vw] xss:text-[1.5rem] leading-8 md:mt-4 sm:mt-[0.6rem] xs:mt-[0.5rem] xss:mt-4 font-pop font-bold text-[#E4E4E4]'>{title}</h1>

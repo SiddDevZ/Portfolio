@@ -13,7 +13,7 @@ const Page = () => {
       </div>
       <NavBar check={0} />
       <div className="main flex flex-col pt-16 items-center px-7 animate-in">
-        <div className="mt-2 main-area sm:py-10 xss:py-7 px-10 main-area mb-5 flex flex-col items-center justify-center border border-[#2e2e2e] w-[65rem] sm:max-w-[90vw] xss:max-w-[95vw] relative">
+        <div className="mt-2 main-area sm:py-10 xss:py-7 px-10 main-area mb-5 flex flex-col items-center justify-center border border-[#2e2e2e] w-[65rem] sm:max-w-[90vw] xss:max-w-[93.5vw] relative">
           <div className="absolute sm:-top-[1.15rem] sm:-left-3 xs:-top-[0.65rem] xss:-left-1 xss:-top-[0.5rem] sm:w-6 sm:h-6 xss:w-2 xss:h-2 bg-black flex items-center justify-center">
             <span className="text-[#606060] sm:text-7xl xs:text-6xl xss:text-4xl font-[50]">+</span>
           </div>
@@ -32,12 +32,13 @@ const Page = () => {
               Scratch
             </h1>
             <div className="flex gap-2 mt-4 flex-wrap justify-center">
-              <TechStack url={"nextjs.svg"} name={"Next.js"} />
+              {/* <TechStack url={"nextjs.svg"} name={"Next.js"} /> */}
               <TechStack url={"react.svg"} name={"React"} />
               <TechStack url={"nodejs.svg"} name={"NodeJS"} />
               <TechStack url={"mongo.webp"} name={"MongoDB"} />
+              <TechStack url={"git.svg"} name={"Git"} />
+              <TechStack url={"hono.svg"} name={"Hono.js"} />
               <TechStack url={"tailwind.svg"} name={"Tailwind"} />
-              <TechStack url={"python.svg"} name={"Python"} />
             </div>
             <div className="flex justify-between w-full mt-8">
               <div className="flex gap-1 justify-center items-center">
@@ -45,7 +46,7 @@ const Page = () => {
                 <p className="text-xs text-[#bbbbbb] font-medium">3 min read</p>
               </div>
               <p className="text-xs text-[#bbbbbb] font-medium">
-                April 2024 - September 2024
+                June 2024 - August 2024
               </p>
             </div>
             <div className="mt-10 text-[#CCCCCC] leading-relaxed space-y-4 font-sans">

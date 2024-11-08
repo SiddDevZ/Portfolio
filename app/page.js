@@ -32,7 +32,7 @@ export default function Home() {
             </h2>
           </div>
           <div className="sec-2">
-            <p className="text-[#BBBBBB] mt-8 font-pop font-medium xs:text-lg xss:text-[1.09rem] tracking-[0.015em]">
+            <p className="text-[#bcbcbc] mt-8 font-pop font-medium xs:text-lg xss:text-[1.09rem] tracking-[0.015em]">
               I'm Siddharth!{" "}
               <span className="text-[#F2F2F2]">
                 I have 3+ years of experience in web dev

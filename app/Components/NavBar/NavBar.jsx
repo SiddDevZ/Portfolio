@@ -13,16 +13,16 @@ const NavBar = ({ check }) => {
   };
 
   return (
-    <div className='lg:flex xss:hidden py-4 nav px-7 sm:px-6 lg:px-[8rem] justify-between items-center animate-in'>
+    <div className='flex py-4 nav px-7 sm:px-6 lg:px-[8rem] justify-between items-center animate-in'>
       
       <Link href="/" className='font-mono text-lg sm:text-xl hover:scale-105 transition-all text-btn cursor-pointer'>&lt;/SiddZ&gt;</Link>
-      <div className='flex gap-4 sm:gap-6 lg:gap-[3.15rem] items-center'>
+      <div className='flex gap-6 sm:gap-6 lg:gap-[3.15rem] items-center'>
         { check == 1? (
-          <Link href="/blog" className='font-inter text-[#FFFFFF] text-base sm:text-lg xl:text-xl cursor-pointer hover-underline-animation'>Blog</Link>
+          <Link href="/blog" className='font-inter text-[#FFFFFF] text-lg sm:text-lg xl:text-xl tracking-wider cursor-pointer hover-underline-animation'>Blog</Link>
         ) : (
-          <Link href="/" className='font-inter text-[#ffffff] text-base sm:text-lg xl:text-xl cursor-pointer hover-underline-animation'>About</Link>
+          <Link href="/" className='font-inter text-[#ffffff] text-lg sm:text-lg xl:text-xl cursor-pointer hover-underline-animation'>About</Link>
         )}
-        <button onClick={handleContactClick} className='font-pop text-base sm:text-lg xl:text-xl px-3 sm:px-4 lg:px-[1.3rem] py-1 sm:py-2 lg:py-[0.4rem] bg-[#eeeeee] text-black rounded-full overflow-hidden hover:bg-[#f1f1f1] transition-all hover:scale-105 ease-in-out text-btn'>Contact</button>
+        <button onClick={handleContactClick} className='font-pop text-lg sm:text-lg xl:text-xl px-3 xss:px-4 xss:py-[0.3rem] sm:px-4 lg:px-[1.3rem] py-1 sm:py-2 lg:py-[0.4rem] bg-[#eeeeee] text-black rounded-full overflow-hidden hover:bg-[#f1f1f1] transition-all hover:scale-105 ease-in-out text-btn'>Contact</button>
       </div>
     </div>
   )
