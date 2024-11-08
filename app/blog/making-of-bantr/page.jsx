@@ -13,7 +13,10 @@ const Page = () => {
       </div>
       <NavBar check={0} />
       <div className="main flex flex-col pt-16 items-center px-7 animate-in">
-        <div className="mt-2 py-10 px-10 main-area mb-5 flex flex-col items-center justify-center border border-[#2e2e2e] w-[65rem] max-w-[90vw]">
+        <div className="mt-2 main-area sm:py-10 xss:py-7 px-10 main-area mb-5 flex flex-col items-center justify-center border border-[#2e2e2e] w-[65rem] sm:max-w-[90vw] xss:max-w-[95vw] relative">
+          <div className="absolute sm:-top-[1.15rem] sm:-left-3 xs:-top-[0.65rem] xss:-left-1 xss:-top-[0.5rem] sm:w-6 sm:h-6 xss:w-2 xss:h-2 bg-black flex items-center justify-center">
+            <span className="text-[#606060] sm:text-7xl xs:text-6xl xss:text-4xl font-[50]">+</span>
+          </div>
           <div className="max-w-[42.5rem] w-full flex flex-col items-center">
             <Link
               href="/blog"
@@ -24,7 +27,7 @@ const Page = () => {
                 Blog
               </p>
             </Link>
-            <h1 className="text-[#D8D8D8] text-4xl font-semibold text-center font-sans">
+            <h1 className="text-[#D8D8D8] md:text-4xl sm:sm:text-3xl xss:text-[1.7rem] xss:leading-7 xss:text-2xl font-semibold  text-center font-sans">
               Bantr Project Breakdown: How I Built a Real-Time Chat App from
               Scratch
             </h1>
@@ -46,7 +49,7 @@ const Page = () => {
               </p>
             </div>
             <div className="mt-10 text-[#CCCCCC] leading-relaxed space-y-4 font-sans">
-              <h2 className="text-[#D8D8D8] text-3xl font-semibold">
+              <h2 className="text-[#D8D8D8] sm:text-3xl xss:text-[1.7rem] xss:leading-7 font-semibold ">
                 What Inspired Bantr?
               </h2>
               <p className="text-[#DBDBDB] pb-5">
@@ -57,14 +60,40 @@ const Page = () => {
                   Bantr
                 </span>{" "}
                 became my project to experiment and create a streamlined chat
-                experience with servers, channels, moderation, inspired by platforms like{" "}
+                experience with servers, channels, moderation, inspired by
+                platforms like{" "}
                 <span className="font-mono bg-[#2e2e2e] px-1 rounded">
                   Discord
                 </span>
                 , focusing on connecting people without clutter.
               </p>
-
-              <h2 className="text-[#D8D8D8] text-3xl font-semibold">
+              <a
+                href={"https://bantr.siddz.com/"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 flex items-center gap-[0.55rem] group hover:cursor-pointer"
+              >
+                <i className="ri-link text-base bg-gradient-to-b from-[#72EDF2] to-[#5151E5] text-transparent bg-clip-text"></i>
+                <div className="inline-flex flex-col">
+                  <h1 className="text-sm bg-gradient-to-b translate-y-[1px] from-[#72EDF2] to-[#5151E5] text-transparent bg-clip-text">
+                    Live Preview
+                  </h1>
+                  <div className="group-hover:bg-gradient-to-r bg-transparent from-[#72EDF2] to-[#5151E5] h-[0.7px] w-full"></div>
+                </div>
+              </a>
+              <div className="relative pb-[56.25%] h-0 overflow-hidden">
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/iO7T-mJVyI4?si=tYlLUwqZF9RiqiBq&controls=0&rel=0&modestbranding=1&showinfo=0"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <h2 className="text-[#D8D8D8] sm:text-3xl xss:text-[1.7rem] xss:leading-7 font-semibold ">
                 Tech Stack & Tools
               </h2>
               <p className="text-[#DBDBDB]">
@@ -85,9 +114,9 @@ const Page = () => {
                   <span className="font-medium text-[#D8D8D8] font-mono">
                     Hono.js
                   </span>
-                  : Opted for Hono.js for its lightweight and fast APIs performance,
-                  making it good for building efficient and scalable real-time
-                  chat applications.
+                  : Opted for Hono.js for its lightweight and fast APIs
+                  performance, making it good for building efficient and
+                  scalable real-time chat applications.
                 </li>
                 <li className="text-[#DBDBDB]">
                   <span className="font-medium text-[#D8D8D8] font-mono">
@@ -113,7 +142,7 @@ const Page = () => {
                 </li>
               </ul>
 
-              <h2 className="text-[#D8D8D8] text-3xl font-semibold">
+              <h2 className="text-[#D8D8D8] sm:text-3xl xss:text-[1.7rem] xss:leading-7 font-semibold ">
                 The Challenge of Socket.IO
               </h2>
               <p className="text-[#DBDBDB]">
@@ -145,7 +174,7 @@ const Page = () => {
                 for Fast Performance was totally worth it.
               </p>
 
-              <h2 className="text-[#D8D8D8] text-3xl font-semibold">
+              <h2 className="text-[#D8D8D8] sm:text-3xl xss:text-[1.7rem] xss:leading-7 font-semibold ">
                 Building an Engaging UI
               </h2>
               <p className="text-[#DBDBDB] pb-5">
@@ -157,11 +186,11 @@ const Page = () => {
                 <span className="font-mono bg-[#2e2e2e] px-1 rounded">CSS</span>{" "}
                 for the UI to save time. The platform needed to feel premium, so
                 I opted for a dark theme with subtle shades of gray and vibrant
-                yellow accents. Clean icons from remixicon, consistent spacing, and smooth
-                animations brought everything together.
+                yellow accents. Clean icons from remixicon, consistent spacing,
+                and smooth animations brought everything together.
               </p>
 
-              <h2 className="text-[#D8D8D8] text-3xl font-semibold">
+              <h2 className="text-[#D8D8D8] sm:text-3xl xss:text-[1.7rem] xss:leading-7 font-semibold ">
                 Final Thoughts
               </h2>
               <p className="text-[#DBDBDB] pb-5">
@@ -172,14 +201,16 @@ const Page = () => {
                 short while.
               </p>
 
-              {/* <p className="text-[#D8D8D8] text-3xl font-semibold text-center mt-10">
+              {/* <p className="text-[#D8D8D8] sm:text-3xl xss:text-[1.7rem] xss:leading-7 font-semibold  text-center mt-10">
                 Stay tuned, Bantr has a lot more in store!
               </p> */}
             </div>
             <div className="flex justify-between w-full mt-8">
               <div className="flex gap-1 justify-center items-center">
                 {/* <i className="ri-loop-left-fill"></i> */}
-                <p className="text-xs text-[#bbbbbb]">Last Updated on 8 November, 2024</p>
+                <p className="text-xs text-[#bbbbbb]">
+                  Last Updated on 8 November, 2024
+                </p>
               </div>
             </div>
           </div>

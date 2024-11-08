@@ -27,59 +27,14 @@ const Badge = ({ children, className, ...props }) => (
 const PageName = () => {
   const posts = [
     {
-      category: "Humor",
-      date: "Oct 15",
-      title: "Why Cats Are Secretly Ninjas",
-      description:
-        "With their stealthy moves, silent paws, and ability to vanish into thin air...",
-      tags: ["Feline", "Stealth"],
-      link: "https://google.com/",
-    },
-    {
-      category: "Lifestyle",
+      category: "Project",
       date: "Oct 12",
-      title: "The Art of Procrastination",
+      title: "Bantr Project Breakdown: How I Built a Chat App from Scratch",
       description:
-        "Mastering the delicate balance between doing nothing and achieving everything...",
-      tags: ["Time Management", "Relaxation"],
+        "Ever since I started coding, I've been fascinated by how real-time communication works. This...",
+      tags: ["Coding", "Full Stack"],
       link: "blog/making-of-bantr",
-    },
-    {
-      category: "Beverages",
-      date: "Oct 11",
-      title: "Why Coffee is Just Bean Juice",
-      description:
-        "Exploring the magical transformation of beans into the elixir of life...",
-      tags: ["Coffee", "Magic"],
-      link: "https://google.com/",
-    },
-    {
-      category: "Mystery",
-      date: "Oct 11",
-      title: "The Secret Life of Socks",
-      description:
-        "Unraveling the mystery of why socks always disappear in the laundry...",
-      tags: ["Laundry", "Mystery"],
-      link: "https://google.com/",
-    },
-    {
-      category: "Games",
-      date: "Oct 11",
-      title: "Why Dogs Are Terrible at Poker",
-      description:
-        "A deep dive into the canine inability to maintain a poker face...",
-      tags: ["Poker", "Dogs"],
-      link: "https://google.com/",
-    },
-    {
-      category: "Conspiracy",
-      date: "Oct 11",
-      title: "The Great Spaghetti Conspiracy",
-      description:
-        "Investigating the tangled web of pasta and its mysterious origins...",
-      tags: ["Pasta", "Conspiracy"],
-      link: "https://google.com/",
-    },
+    }
   ];
   return (
     <>
