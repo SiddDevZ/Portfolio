@@ -17,9 +17,9 @@ export default function Home() {
       <div>
         <Toaster richColors theme="dark" />
       </div>
-      <NavBar />
+      <NavBar check={1} />
       <div className="main flex flex-col items-center px-7">
-        <div className="pt-14 max-w-[52rem] main-area mb-5">
+        <div className="pt-14 max-w-[52rem] main-area mb-5 animate-in">
           <div className="sec-1">
             <h1 className="sm:text-[2.4rem] xs:text-[1.85rem] xss:text-[2rem] sm:leading-[3.4rem] xs:leading-[2.9rem] xss:leading-[2.5rem] xs:mb-0 xss:mb-[0.4rem] font-pop font-extrabold">
               Hey, I'm <br className="xs:hidden xss:block" />

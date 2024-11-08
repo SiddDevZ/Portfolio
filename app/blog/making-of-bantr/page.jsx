@@ -1,0 +1,192 @@
+import React from "react";
+import NavBar from "@/app/Components/NavBar/NavBar";
+import Particles from "@/app/Components/Particles/Particles";
+import "remixicon/fonts/remixicon.css";
+import TechStack from "@/app/Components/TechStack/TechStackb";
+import Link from "next/link";
+
+const Page = () => {
+  return (
+    <>
+      <div className="full-screen">
+        <Particles />
+      </div>
+      <NavBar check={0} />
+      <div className="main flex flex-col pt-16 items-center px-7 animate-in">
+        <div className="mt-2 py-10 px-10 main-area mb-5 flex flex-col items-center justify-center border border-[#2e2e2e] w-[65rem] max-w-[90vw]">
+          <div className="max-w-[42.5rem] w-full flex flex-col items-center">
+            <Link
+              href="/blog"
+              className="flex justify-center group items-center cursor-pointer gap-1 mb-6"
+            >
+              <i className="ri-arrow-left-line text-sm text-[#CCCCCC]"></i>
+              <p className="text-xs group-hover:underline text-[#CCCCCC]">
+                Blog
+              </p>
+            </Link>
+            <h1 className="text-[#D8D8D8] text-4xl font-semibold text-center font-sans">
+              Bantr Project Breakdown: How I Built a Real-Time Chat App from
+              Scratch
+            </h1>
+            <div className="flex gap-2 mt-4 flex-wrap justify-center">
+              <TechStack url={"nextjs.svg"} name={"Next.js"} />
+              <TechStack url={"react.svg"} name={"React"} />
+              <TechStack url={"nodejs.svg"} name={"NodeJS"} />
+              <TechStack url={"mongo.webp"} name={"MongoDB"} />
+              <TechStack url={"tailwind.svg"} name={"Tailwind"} />
+              <TechStack url={"python.svg"} name={"Python"} />
+            </div>
+            <div className="flex justify-between w-full mt-8">
+              <div className="flex gap-1 justify-center items-center">
+                <i className="ri-time-line text-xs text-[#bbbbbb]"></i>
+                <p className="text-xs text-[#bbbbbb] font-medium">3 min read</p>
+              </div>
+              <p className="text-xs text-[#bbbbbb] font-medium">
+                April 2024 - September 2024
+              </p>
+            </div>
+            <div className="mt-10 text-[#CCCCCC] leading-relaxed space-y-4 font-sans">
+              <h2 className="text-[#D8D8D8] text-3xl font-semibold">
+                What Inspired Bantr?
+              </h2>
+              <p className="text-[#DBDBDB] pb-5">
+                Ever since I started coding, I've been fascinated by how
+                real-time communication works. This curiosity led me to explore
+                chat applications to understand seamless messaging.{" "}
+                <span className="font-mono bg-[#2e2e2e] px-1 rounded">
+                  Bantr
+                </span>{" "}
+                became my project to experiment and create a streamlined chat
+                experience with servers, channels, moderation, inspired by platforms like{" "}
+                <span className="font-mono bg-[#2e2e2e] px-1 rounded">
+                  Discord
+                </span>
+                , focusing on connecting people without clutter.
+              </p>
+
+              <h2 className="text-[#D8D8D8] text-3xl font-semibold">
+                Tech Stack & Tools
+              </h2>
+              <p className="text-[#DBDBDB]">
+                For this project, I wanted a stack that could handle large
+                volumes of data fast and keep the UI super responsive. Here's
+                the core:
+              </p>
+              <ul className="list-disc ml-5 space-y-2 pb-5">
+                <li className="text-[#DBDBDB]">
+                  <span className="font-medium text-[#D8D8D8] font-mono">
+                    React.js
+                  </span>
+                  : Chose React.js for its component-based architecture, which
+                  allows for building reusable UI components and creating a
+                  dynamic user experience.
+                </li>
+                <li className="text-[#DBDBDB]">
+                  <span className="font-medium text-[#D8D8D8] font-mono">
+                    Hono.js
+                  </span>
+                  : Opted for Hono.js for its lightweight and fast APIs performance,
+                  making it good for building efficient and scalable real-time
+                  chat applications.
+                </li>
+                <li className="text-[#DBDBDB]">
+                  <span className="font-medium text-[#D8D8D8] font-mono">
+                    MongoDB
+                  </span>
+                  : Fast and scalable NoSQL database. With all the chat messages
+                  and user data, MongoDB's document structure helped keep things
+                  organized.
+                </li>
+                <li className="text-[#DBDBDB]">
+                  <span className="font-medium text-[#D8D8D8] font-mono">
+                    Socket.IO
+                  </span>
+                  : The MVP of Bantr, Socket.IO is what gives Bantr its
+                  real-time chat capability.
+                </li>
+                <li className="text-[#DBDBDB]">
+                  <span className="font-medium text-[#D8D8D8] font-mono">
+                    Tailwind CSS
+                  </span>
+                  : For that clean, minimalistic design vibe. It's easy to use,
+                  saves time, and makes everything look sharp.
+                </li>
+              </ul>
+
+              <h2 className="text-[#D8D8D8] text-3xl font-semibold">
+                The Challenge of Socket.IO
+              </h2>
+              <p className="text-[#DBDBDB]">
+                Here's where things got… interesting. Setting up{" "}
+                <span className="font-medium font-mono bg-[#2e2e2e] px-1 rounded">
+                  Socket.IO
+                </span>{" "}
+                to run smoothly between HTTP and HTTPS was a test of patience.
+                At first, I was getting CORS errors, a nightmare when you're
+                trying to keep connections seamless. After a bunch of digging, I
+                realized it was because I was running the frontend on{" "}
+                <span className="font-mono bg-[#2e2e2e] px-1 rounded">
+                  HTTPS
+                </span>{" "}
+                and the backend on{" "}
+                <span className="font-mono bg-[#2e2e2e] px-1 rounded">
+                  HTTP
+                </span>
+                . Which is not allowed by browsers because of security.
+              </p>
+              <p className="text-[#DBDBDB] pb-5">
+                To fix it, I had to configure custom headers and enable CORS on
+                the server. Not so fun but I learned a ton from that experience.
+                Once everything was in place, watching messages appear instantly
+                by utilizing{" "}
+                <span className="font-mono bg-[#2e2e2e] px-1 rounded">
+                  Hono.js
+                </span>{" "}
+                for Fast Performance was totally worth it.
+              </p>
+
+              <h2 className="text-[#D8D8D8] text-3xl font-semibold">
+                Building an Engaging UI
+              </h2>
+              <p className="text-[#DBDBDB] pb-5">
+                I wanted to use a mix of{" "}
+                <span className="font-mono bg-[#2e2e2e] px-1 rounded">
+                  TailwindCSS
+                </span>{" "}
+                and normal{" "}
+                <span className="font-mono bg-[#2e2e2e] px-1 rounded">CSS</span>{" "}
+                for the UI to save time. The platform needed to feel premium, so
+                I opted for a dark theme with subtle shades of gray and vibrant
+                yellow accents. Clean icons from remixicon, consistent spacing, and smooth
+                animations brought everything together.
+              </p>
+
+              <h2 className="text-[#D8D8D8] text-3xl font-semibold">
+                Final Thoughts
+              </h2>
+              <p className="text-[#DBDBDB] pb-5">
+                Working on Bantr has been an incredible experience and a fun
+                challenge. While it was just an experimental project, I’m proud
+                of what I accomplished. Bantr isn’t just a chat app it’s a
+                project I built to bring people together, even if only for a
+                short while.
+              </p>
+
+              {/* <p className="text-[#D8D8D8] text-3xl font-semibold text-center mt-10">
+                Stay tuned, Bantr has a lot more in store!
+              </p> */}
+            </div>
+            <div className="flex justify-between w-full mt-8">
+              <div className="flex gap-1 justify-center items-center">
+                {/* <i className="ri-loop-left-fill"></i> */}
+                <p className="text-xs text-[#bbbbbb]">Last Updated on 8 November, 2024</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Page;

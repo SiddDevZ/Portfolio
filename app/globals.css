@@ -95,3 +95,28 @@
 .aspect-square {
   aspect-ratio: 1 / 1;
 }
+
+.code-like {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #2e2e2e;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #FFD700; /* Gold color for highlights */
+}
+
+.section-title {
+  font-family: 'Arial', sans-serif;
+  font-size: 2.5rem;
+  color: #D8D8D8;
+  margin-bottom: 1rem;
+}
+
+.section-content {
+  font-family: 'Verdana', sans-serif;
+  color: #DBDBDB;
+  line-height: 1.6;
+}
