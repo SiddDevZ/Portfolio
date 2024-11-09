@@ -1,14 +1,28 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import './NavBar.css'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 const NavBar = ({ check }) => {
-  
+  const router = useRouter()
+
   const handleContactClick = () => {
-    const contact = document.getElementById("contact");
-    if (contact) {
-      contact.scrollIntoView({ behavior: "smooth" });
+    if (typeof window !== 'undefined') {
+      if (window.location.pathname !== '/') {
+        router.push('/')
+        setTimeout(() => {
+          const contact = document.getElementById("contact");
+          if (contact) {
+            contact.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 100)
+      } else {
+        const contact = document.getElementById("contact");
+        if (contact) {
+          contact.scrollIntoView({ behavior: "smooth" });
+        }
+      }
     }
   };
 

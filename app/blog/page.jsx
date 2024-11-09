@@ -28,7 +28,7 @@ const PageName = () => {
   const posts = [
     {
       category: "Project",
-      date: "Oct 12",
+      date: "Nov 8",
       title: "Bantr Project Breakdown: How I Built a Chat App from Scratch",
       description:
         "Ever since I started coding, I've been fascinated by how real-time communication works. This...",
