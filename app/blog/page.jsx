@@ -32,9 +32,27 @@ const PageName = () => {
       title: "Bantr Project Breakdown: How I Built a Chat App from Scratch",
       description:
         "Ever since I started coding, I've been fascinated by how real-time communication works. This...",
-      tags: ["Coding", "Full Stack"],
+      tags: ["Coding", "Full Stack", "Chat"],
       link: "blog/making-of-bantr",
-    }
+    },
+    {
+      category: "Project",
+      date: "Jul 27",
+      title: "Designing Our Agency's Website",
+      description:
+        "Creating our agency website was essential for presenting our work, allowing clients easy access to explore our services and projects...",
+      tags: ["Coding", "Frontend", "Design"],
+      link: "blog/the-luvoweb-project",
+    },
+    {
+      category: "Project",
+      date: "May 12",
+      title: "Zenos AI Project Breakdown: Building a Real-Time AI Chat",
+      description:
+        "I've always wanted to build something in full-stack development that could offer real utility....",
+      tags: ["Coding", "Full Stack"],
+      link: "blog/project-zenosai",
+    },
   ];
   return (
     <>
