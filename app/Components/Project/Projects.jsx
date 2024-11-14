@@ -79,7 +79,7 @@ const Projects = () => {
           }
           onHover={() => handleHover(1)}
           onLeave={handleLeave}
-          blog={"no"}
+          blog={"/blog/project-zenosai"}
         />
         <Project
           title={"Luvo Web"}
@@ -91,7 +91,7 @@ const Projects = () => {
           }
           onHover={() => handleHover(2)}
           onLeave={handleLeave}
-          blog={"no"}
+          blog={"/blog/the-luvoweb-project"}
         />
       </div>
     </div>
