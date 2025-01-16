@@ -58,6 +58,18 @@ const Projects = () => {
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto" ref={containerRef}>
         <Project
+          title={"Zenos - AI ChatBot"}
+          image="zenos.webp"
+          link={"https://zenos.siddz.com"}
+          lang={["React", "Node.js", "Express", "APIs", "MongoDB"]}
+          description={
+            "ChatBot which provides the latest models for free, with a visually appealing and Responsive interface."
+          }
+          onHover={() => handleHover(0)}
+          onLeave={handleLeave}
+          blog={"/blog/project-zenosai"}
+        />
+        <Project
           title={"Bantr - Chatting App"}
           image="bantr.webp"
           link={"https://bantr.siddz.com"}
@@ -65,21 +77,9 @@ const Projects = () => {
           description={
             "Real-Time chatting app similar to Discord. Servers, channels, direct messages, and much more.."
           }
-          onHover={() => handleHover(0)}
-          onLeave={handleLeave}
-          blog={"/blog/making-of-bantr"}
-        />
-        <Project
-          title={"ZenosAI - AI ChatBot"}
-          image="zenos.webp"
-          link={"https://zenos.siddz.com"}
-          lang={["React", "Node.js", "Express", "APIs", "MongoDB"]}
-          description={
-            "ChatBot Powered by Meta's Llama model, with a visually appealing and Responsive interface."
-          }
           onHover={() => handleHover(1)}
           onLeave={handleLeave}
-          blog={"/blog/project-zenosai"}
+          blog={"/blog/making-of-bantr"}
         />
         <Project
           title={"Luvo Web"}
