@@ -1,6 +1,6 @@
-'use client'
-import React, { useState, useRef, useEffect } from 'react';
-import Project from './Project';
+"use client";
+import React, { useState, useRef, useEffect } from "react";
+import Project from "./Project";
 
 const Projects = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -12,7 +12,8 @@ const Projects = () => {
     if (hoveredIndex !== null && containerRef.current) {
       const projectElement = containerRef.current.children[hoveredIndex];
       if (projectElement) {
-        const { offsetLeft, offsetTop, offsetWidth, offsetHeight } = projectElement;
+        const { offsetLeft, offsetTop, offsetWidth, offsetHeight } =
+          projectElement;
         return {
           left: `${offsetLeft - 15}px`,
           top: `${offsetTop - 15}px`,
@@ -56,7 +57,10 @@ const Projects = () => {
           opacity: isTransitioning || hoveredIndex !== null ? 1 : 0,
         }}
       />
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto" ref={containerRef}>
+      <div
+        className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto"
+        ref={containerRef}
+      >
         <Project
           title={"Zenos - AI ChatBot"}
           image="zenos.webp"
@@ -92,6 +96,19 @@ const Projects = () => {
           onHover={() => handleHover(2)}
           onLeave={handleLeave}
           blog={"/blog/the-luvoweb-project"}
+        />
+        <Project
+          title={"ScaleOxPerts Website"}
+          image="aa.png"
+          white={true}
+          link={"https://scaleoxperts.com/"}
+          lang={["Next.js", "React", "TailwindCSS", "Vite", "Figma"]}
+          description={
+            "A professional website for a Digital Marketing Company, developed as a freelance project."
+          }
+          onHover={() => handleHover(3)}
+          onLeave={handleLeave}
+          blog={"no"}
         />
       </div>
     </div>

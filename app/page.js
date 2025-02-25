@@ -132,7 +132,7 @@ export default function Home() {
                 }
                 // workInProgress={true}
               />
-              <Project
+              <Projectp
                 title={"ZenosAI - AI ChatBot"}
                 image="zenos.webp"
                 link={"https://zenos.siddz.com"}
