@@ -13,8 +13,10 @@ module.exports = {
         '3xl': '1920px',
       },
       fontFamily: {
-        pop: ["Poppins", "sans-serif"],
-        inter: ['Inter', 'sans-serif'],
+        pop: ["Poppins", "serif"],
+        inter: ['Inter', 'serif'],
+        prata: ['Prata', 'serif'],
+        // merri: ['Merriweather', 'sans-serif'],
       }
     },
   },
