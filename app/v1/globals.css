@@ -48,12 +48,6 @@
   color: #00c7e6;
 }
 
-.unselectable {
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
-  user-select: none; /* Standard syntax */
-}
-
 @keyframes fadeInUp {
   from {
       opacity: 0;
