@@ -62,8 +62,8 @@ const Projects = () => {
         ref={containerRef}
       >
         <Project
-          title={"Zenos - AI ChatBot"}
-          image="zenos.webp"
+          title={"UnchainedGPT"}
+          image="unchained.webp"
           link={"https://zenos.siddz.com"}
           lang={["React", "Node.js", "Express", "APIs", "MongoDB"]}
           description={
@@ -99,7 +99,7 @@ const Projects = () => {
         />
         <Project
           title={"ScaleOxPerts Website"}
-          image="aa.png"
+          image="sacleoxperts.webp"
           white={true}
           link={"https://scaleoxperts.com/"}
           lang={["Next.js", "React", "TailwindCSS", "Vite", "Figma"]}

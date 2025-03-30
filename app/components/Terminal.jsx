@@ -5,7 +5,7 @@ const Terminal = () => {
   // Terminal state
   const [input, setInput] = useState('')
   const [commandHistory, setCommandHistory] = useState([
-    { text: 'Welcome to Siddharth\'s Terminal v1.0.0', type: 'system-title' },
+    { text: 'Welcome to Siddharth\'s Portfolio v3.0.3', type: 'system-title' },
     { text: '© 2025 Siddharth Meena. All rights reserved.', type: 'system-copyright' },
     { text: 'Type "help" to see available commands.', type: 'system' }
   ])
@@ -66,9 +66,14 @@ const Terminal = () => {
         delay = 0 // No delay for command input
       } else if (item.type === 'matrix') {
         delay = 50 // Fast for matrix effect
-      } else if (item.type === 'code' || item.type === 'hacking') {
+      } else if (item.type === 'code') {
         delay = 30 // Fast for code-like output
-      } else if (item.type === 'error') {
+      } else if (item.type === 'hacking') {
+        delay = 750 // Fast for code-like output
+      } else if (item.type === 'italic') {
+        delay = 1200 // Fast for code-like output
+      }
+      else if (item.type === 'error') {
         delay = 50 // Medium for errors
       } else {
         delay = Math.random() * 80 + 30
@@ -220,7 +225,7 @@ const Terminal = () => {
         break
 
       case 'exit':
-        output.push({ text: '// Nice try. There is no escape.', type: 'comment' })
+        output.push({ text: '// Nice try kiddo. There is no escape.', type: 'comment' })
         output.push({ text: 'function attemptEscape() {', type: 'code' })
         output.push({ text: '  throw new Error("Cannot escape terminal. You are stuck here forever.");', type: 'code' })
         output.push({ text: '}', type: 'code' })
