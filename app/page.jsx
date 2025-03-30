@@ -177,7 +177,142 @@ const Page = () => {
         </div>
 
         {/* Projects Section */}
-        
+        <div id='projects-section' className='px-6 py-24 md:px-12 md:py-32 lg:px-24 max-w-[100rem] mx-auto relative z-10'>
+          {/* Section Header */}
+          <div className='flex flex-col items-center justify-center mb-16'>
+            <div className='w-[30px] h-[3px] bg-[#00eeff]/50 rounded-full mb-4'></div>
+            <h2 className='font-prata text-white text-3xl md:text-4xl'>Featured Projects</h2>
+          </div>
+
+          {/* Featured Project */}
+          <div className='relative overflow-hidden rounded-xl mb-24 border border-white/5 bg-[#111111]'>
+            {/* Glowing corner accents */}
+            <div className='absolute top-0 left-0 w-[100px] h-[100px] border-t-2 border-l-2 border-[#00eeff]/30 rounded-tl-xl'></div>
+            <div className='absolute bottom-0 right-0 w-[100px] h-[100px] border-b-2 border-r-2 border-[#ee00ff]/30 rounded-br-xl'></div>
+            
+            <div className='aspect-[16/9] w-full overflow-hidden'>
+              <img 
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070" 
+                alt="Project Watchdog Analytics" 
+                className='w-full h-full object-cover'
+              />
+            </div>
+            
+            <div className='p-8 md:p-10'>
+              <div className='flex flex-col'>
+                <div className='flex items-center mb-4'>
+                  <span className='px-3 py-1 text-xs border border-[#00eeff]/30 text-[#00eeff]/80 bg-[#00eeff]/5 rounded-full'>FEATURED</span>
+                  <div className='w-10 h-[1px] bg-white/20 ml-4'></div>
+                </div>
+                
+                <h3 className='text-white text-2xl md:text-3xl mb-3'>Watchdog Analytics Platform</h3>
+                
+                <p className='text-white/70 text-sm max-w-2xl mb-6'>
+                  A comprehensive data visualization dashboard that provides real-time insights for cybersecurity teams. Built with React, D3.js, and a custom data processing pipeline to handle large datasets efficiently.
+                </p>
+                
+                <div>
+                  <a href="#" className='inline-flex items-center text-[#00eeff] hover:text-white transition-colors duration-300'>
+                    <span className='mr-2 text-sm font-medium'>VIEW CASE STUDY</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Projects Grid */}
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8'>
+            {/* Project data array */}
+            {[
+              {
+                title: "Cipher Secure Messaging",
+                description: "End-to-end encrypted messaging platform with privacy and security at its core.",
+                image: "https://images.unsplash.com/photo-1560807707-8cc77767d783?q=80&w=2070",
+                tech: ["React", "Node.js", "Socket.io", "Crypto API"],
+                color: "#ee00ff"
+              },
+              {
+                title: "Nexus IoT Dashboard",
+                description: "Smart home control system with machine learning for predictive automation.",
+                image: "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?q=80&w=2070",
+                tech: ["React", "TensorFlow.js", "MQTT", "Chart.js"],
+                color: "#00eeff"
+              },
+              {
+                title: "Phantom Code Editor",
+                description: "Lightweight code editor with AI-powered suggestions and syntax highlighting.",
+                image: "https://images.unsplash.com/photo-1593720213428-28a5b9e94613?q=80&w=2070",
+                tech: ["Electron", "Monaco Editor", "TypeScript", "OpenAI"],
+                color: "#ee00ff"
+              },
+              {
+                title: "Spectra AR Experience",
+                description: "Augmented reality application for interactive product visualization.",
+                image: "https://images.unsplash.com/photo-1605379399642-870262d3d051?q=80&w=2106",
+                tech: ["Three.js", "AR.js", "WebGL", "React"],
+                color: "#00eeff"
+              }
+            ].map((project, index) => (
+              <div key={index} className='overflow-hidden rounded-xl border border-white/5 bg-[#111111] transition-all duration-300 hover:translate-y-[-5px]'>
+                {/* Project Image */}
+                <div className='aspect-[16/9] w-full overflow-hidden'>
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className='w-full h-full object-cover'
+                  />
+                </div>
+                
+                {/* Content */}
+                <div className='p-6'>
+                  {/* Tech stack */}
+                  <div className='flex flex-wrap gap-2 mb-3'>
+                    {project.tech.map((tech, techIndex) => (
+                      <span key={techIndex} className='px-2 py-1 text-[10px] bg-white/5 border border-white/10 rounded-full text-white/70'>
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  {/* Title */}
+                  <h3 className='text-white text-xl mb-2'>{project.title}</h3>
+                  
+                  {/* Description */}
+                  <p className='text-white/60 text-xs mb-4'>
+                    {project.description}
+                  </p>
+                  
+                  {/* Link */}
+                  <a 
+                    href="#" 
+                    className='inline-flex items-center text-xs font-medium transition-colors duration-300'
+                    style={{ color: project.color }}
+                  >
+                    <span className='mr-2'>VIEW PROJECT</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          {/* See All Projects button */}
+          <div className='flex justify-center mt-16'>
+            <a href="#" className='group px-8 py-3 border-2 border-white/10 bg-white/5 rounded-xl text-white hover:bg-white/10 transition-all duration-300'>
+              <span className='text-sm tracking-wider flex items-center'>
+                SEE ALL PROJECTS
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
       </div>
     </>
   )
