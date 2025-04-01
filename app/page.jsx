@@ -5,6 +5,7 @@ import Lenis from "@studio-freight/lenis";
 import Terminal from "./components/Terminal";
 import ContactForm from "./components/ContactForm";
 import { ToastContainer } from "./components/Toast";
+import Testimonials from "./components/Testimonials";
 
 const Page = () => {
   const lenisRef = useRef();
@@ -508,7 +509,7 @@ const Page = () => {
                   {[
                     {
                       title: "Web Developer & Owner",
-                      date: "2021 - Present",
+                      date: "2023 - Present",
                       company: "Luvo Web",
                       description: "My development agency which specializes in building high-quality websites for clients across various industries, including businesses backed by Y Combinator and other renowned accelerators.",
                       borderColor: "border-[#ee00ff]/50",
@@ -647,7 +648,16 @@ const Page = () => {
           </div>
         </div>
 
+        <div className='max-w-[100rem] mx-auto relative z-10'>
+          
+        </div>
+
+        {/* Add Testimonials section here */}
+        <Testimonials />
+
       </div>
+
+
     </ToastContainer>
   );
 };

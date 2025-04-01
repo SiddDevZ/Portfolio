@@ -17,9 +17,24 @@ const ContactForm = () => {
   const [isSent, setIsSent] = useState(false);
   
   const { addToast } = useToast();
+  useEffect(() => {
+    const handleTouchMove = (e) => {
+      e.stopPropagation();
+    };
+
+    const inputs = document.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+      input.addEventListener('touchmove', handleTouchMove, { passive: true });
+    });
+
+    return () => {
+      inputs.forEach(input => {
+        input.removeEventListener('touchmove', handleTouchMove);
+      });
+    };
+  }, []);
 
   useEffect(() => {
-    // Initialize EmailJS
     emailjs.init("LkCnVmcFfXTXGYbVF");
   }, []);
 
@@ -105,7 +120,7 @@ const ContactForm = () => {
   };
 
   return (
-    <form className="relative z-20 h-full flex flex-col" onSubmit={handleSubmit}>
+    <form className="relative z-20 h-full flex flex-col" onSubmit={handleSubmit} style={{ overscrollBehavior: 'none' }}>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
         <div className="relative">
           <input 
@@ -116,6 +131,7 @@ const ContactForm = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             disabled={isLoading || isSent}
+            onTouchMove={(e) => e.stopPropagation()}
           />
           {nameError && <p className="text-red-500 text-xs mt-1">Name must be between 3-50 characters</p>}
         </div>
@@ -128,6 +144,7 @@ const ContactForm = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             disabled={isLoading || isSent}
+            onTouchMove={(e) => e.stopPropagation()}
           />
           {emailError && <p className="text-red-500 text-xs mt-1">Please enter a valid email address</p>}
         </div>
@@ -141,6 +158,7 @@ const ContactForm = () => {
           value={subject}
           onChange={(e) => setSubject(e.target.value)}
           disabled={isLoading || isSent}
+          onTouchMove={(e) => e.stopPropagation()}
         />
       </div>
       
@@ -152,6 +170,7 @@ const ContactForm = () => {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           disabled={isLoading || isSent}
+          onTouchMove={(e) => e.stopPropagation()}
         ></textarea>
         {messageError && <p className="text-red-500 text-xs mt-1">Message must be at least 10 characters</p>}
       </div>
