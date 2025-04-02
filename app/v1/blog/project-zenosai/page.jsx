@@ -1,8 +1,8 @@
 import React from "react";
-import NavBar from "@/app/Components/NavBar/NavBar";
-import Particles from "@/app/Components/Particles/Particles";
+import NavBar from "@/app/v1/Components/NavBar/NavBar";
+import Particles from "@/app/v1/Components/Particles/Particles";
 import "remixicon/fonts/remixicon.css";
-import TechStack from "@/app/Components/TechStack/TechStackb";
+import TechStack from "@/app/v1/Components/TechStack/TechStackb";
 import Link from "next/link";
 
 const page = () => {

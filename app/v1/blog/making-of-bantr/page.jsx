@@ -1,8 +1,8 @@
 import React from "react";
-import NavBar from "@/app/Components/NavBar/NavBar";
-import Particles from "@/app/Components/Particles/Particles";
+import NavBar from "@/app/v1/Components/NavBar/NavBar";
+import Particles from "@/app/v1/Components/Particles/Particles";
 import "remixicon/fonts/remixicon.css";
-import TechStack from "@/app/Components/TechStack/TechStackb";
+import TechStack from "@/app/v1/Components/TechStack/TechStackb";
 import Link from "next/link";
 
 const Page = () => {
@@ -196,8 +196,8 @@ const Page = () => {
               </h2>
               <p className="text-[#DBDBDB] pb-5">
                 Working on Bantr has been an incredible experience and a fun
-                challenge. While it was just an experimental project, I’m proud
-                of what I accomplished. Bantr isn’t just a chat app it’s a
+                challenge. While it was just an experimental project, I'm proud
+                of what I accomplished. Bantr isn't just a chat app it's a
                 project I built to bring people together, even if only for a
                 short while.
               </p>
