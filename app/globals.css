@@ -8,6 +8,10 @@
     color: #fff;
 }
 
+body {
+    background-color: #100f0f;
+}
+
 .unselectable {
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */

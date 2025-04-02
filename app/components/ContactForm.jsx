@@ -1,6 +1,6 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { useToast } from "./Toast";
+import React, { useState, useEffect, useRef } from "react";
+import { toast } from "react-hot-toast";
 import emailjs from "@emailjs/browser";
 
 const ContactForm = () => {
@@ -16,7 +16,8 @@ const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSent, setIsSent] = useState(false);
   
-  const { addToast } = useToast();
+  const [canResend, setCanResend] = useState(true);
+  
   useEffect(() => {
     const handleTouchMove = (e) => {
       e.stopPropagation();
@@ -76,7 +77,7 @@ const ContactForm = () => {
     
     if (hasError) {
       setIsLoading(false);
-      addToast("Please fix the highlighted errors", "error");
+      toast.error("Please fix the highlighted errors");
       return;
     }
     
@@ -95,26 +96,34 @@ const ContactForm = () => {
         "template_cxxitvt", // Your EmailJS template ID
         templateParams,
         "LkCnVmcFfXTXGYbVF" // Your EmailJS public key
-      );
-      
-      addToast("Message sent successfully!", "success", 5000);
-      
-      // Reset form
-      setName("");
-      setEmail("");
-      setSubject("");
-      setMessage("");
-      setIsSent(true);
-      
-      // Allow sending another message after 10 seconds
-      setTimeout(() => {
-        setIsSent(false);
-      }, 10000);
+      )
+      .then((response) => {
+        if (response.status === 200) {
+          setIsLoading(false);
+          toast.success("Message sent successfully!");
+          
+          // Reset form
+          setName("");
+          setEmail("");
+          setSubject("");
+          setMessage("");
+          setIsSent(true);
+          
+          // Allow sending another message after 10 seconds
+          setTimeout(() => {
+            setIsSent(false);
+          }, 10000);
+        }
+      })
+      .catch((error) => {
+        console.error("Error sending email:", error);
+        toast.error("Failed to send message. Please try again or contact directly via email.");
+        setIsLoading(false);
+      });
       
     } catch (error) {
       console.error("Error sending email:", error);
-      addToast("Failed to send message. Please try again or contact directly via email.", "error", 5000);
-    } finally {
+      toast.error("Failed to send message. Please try again or contact directly via email.");
       setIsLoading(false);
     }
   };
@@ -175,11 +184,11 @@ const ContactForm = () => {
         {messageError && <p className="text-red-500 text-xs mt-1">Message must be at least 10 characters</p>}
       </div>
       
-      <div className="flex pt-0.5 justify-start">
+      <div className="flex md:pt-0.5 justify-start">
         <button
           type="submit"
           disabled={isLoading || isSent}
-          className={`px-5 py-2.5 border-2 border-[#00eeff]/30 text-[#00eeff]/80 bg-[#00eeff]/5 rounded-xl hover:bg-[#00eeff16] transition-all ease-out hover:scale-[1.028] duration-300 text-sm tracking-wider relative ${isLoading || isSent ? 'opacity-70 cursor-not-allowed' : ''}`}
+          className={`md:px-5 md:py-2.5 px-3 py-1.5 border-2 border-[#00eeff]/30 text-[#00eeff]/80 bg-[#00eeff]/5 rounded-xl hover:bg-[#00eeff16] transition-all ease-out hover:scale-[1.028] duration-300 md:text-sm text-[0.8rem] tracking-wider relative ${isLoading || isSent ? 'opacity-70 cursor-not-allowed' : ''}`}
         >
           {isLoading ? (
             <>
