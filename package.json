@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev -H 192.168.225.121",
-    "build": "SET NEXT_TELEMETRY_DISABLED=1 && rm -rf .next && next build",
+    "build": "NEXT_TELEMETRY_DISABLED=1 rm -rf .next && next build",
     "start": "next start",
     "lint": "next lint"
   },
