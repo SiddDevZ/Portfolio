@@ -1,0 +1,9 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Specify sitemap location
+Sitemap: https://siddz.com/sitemap.xml
+
+# Disallow specific routes if needed in future
+# Disallow: /admin/ 

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+    <loc>https://siddz.com/</loc>
+    <lastmod>2025-04-03T10:00:00+05:30</lastmod>
+    <priority>1.00</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <!-- Add additional pages if they exist -->
+  <url>
+    <loc>https://siddz.com/v1</loc>
+    <lastmod>2025-04-03T10:00:00+05:30</lastmod>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://siddz.com/blogs</loc>
+    <lastmod>2025-04-03T10:00:00+05:30</lastmod>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://siddz.com/Siddharth_Resume.pdf</loc>
+    <lastmod>2025-04-03T10:00:00+05:30</lastmod>
+    <priority>0.60</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+</urlset> 
