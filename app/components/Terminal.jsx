@@ -15,7 +15,13 @@ const Terminal = () => {
   const terminalRef = useRef(null)
   const inputRef = useRef(null)
 
-  // Available commands
+  const handleWheel = (e) => {
+    if (terminalRef.current) {
+      terminalRef.current.scrollTop += e.deltaY;
+      e.stopPropagation();
+    }
+  };
+
   const commands = {
     help: 'List all available commands',
     about: 'Learn about Siddharth',
@@ -277,6 +283,7 @@ const Terminal = () => {
             scrollbarWidth: 'thin',
             scrollbarColor: '#333 #0f0f0f'
           }}
+          onWheel={handleWheel}
         >
           {commandHistory.map((item, index) => (
             <div 

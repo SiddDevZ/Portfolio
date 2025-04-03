@@ -6,7 +6,7 @@ import Terminal from "./components/Terminal";
 import ContactForm from "./components/ContactForm";
 import { Toaster, toast } from "react-hot-toast";
 import Testimonials from "./components/Testimonials";
-import Footer from './components/Footer';
+import Footer from "./components/Footer";
 
 const Page = () => {
   const lenisRef = useRef();
@@ -33,12 +33,12 @@ const Page = () => {
       infinite: false,
     });
 
-    const inputElements = document.querySelectorAll('input, textarea');
-    inputElements.forEach(input => {
-      input.addEventListener('focus', () => {
+    const inputElements = document.querySelectorAll("input, textarea");
+    inputElements.forEach((input) => {
+      input.addEventListener("focus", () => {
         if (lenisRef.current) lenisRef.current.stop();
       });
-      input.addEventListener('blur', () => {
+      input.addEventListener("blur", () => {
         if (lenisRef.current) lenisRef.current.start();
       });
     });
@@ -60,36 +60,36 @@ const Page = () => {
       <Toaster
         position="bottom-right"
         toastOptions={{
-          className: '',
+          className: "",
           style: {
-            background: 'rgba(17, 17, 17, 0.9)',
-            color: '#fff',
-            borderRadius: '12px',
-            padding: '16px',
-            border: '1px solid rgba(255, 255, 255, 0.1)',
-            backdropFilter: 'blur(8px)',
-            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
+            background: "rgba(17, 17, 17, 0.9)",
+            color: "#fff",
+            borderRadius: "12px",
+            padding: "16px",
+            border: "1px solid rgba(255, 255, 255, 0.1)",
+            backdropFilter: "blur(8px)",
+            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
           },
           success: {
             style: {
-              background: 'rgba(17, 17, 17, 0.9)',
-              border: '1px solid rgba(0, 238, 255, 0.3)',
-              color: '#fff',
+              background: "rgba(17, 17, 17, 0.9)",
+              border: "1px solid rgba(0, 238, 255, 0.3)",
+              color: "#fff",
             },
             iconTheme: {
-              primary: 'rgba(0, 238, 255, 0.9)',
-              secondary: '#111',
+              primary: "rgba(0, 238, 255, 0.9)",
+              secondary: "#111",
             },
           },
           error: {
             style: {
-              background: 'rgba(17, 17, 17, 0.9)',
-              border: '1px solid rgba(238, 0, 255, 0.3)',
-              color: '#fff',
+              background: "rgba(17, 17, 17, 0.9)",
+              border: "1px solid rgba(238, 0, 255, 0.3)",
+              color: "#fff",
             },
             iconTheme: {
-              primary: 'rgba(238, 0, 255, 0.9)',
-              secondary: '#111',
+              primary: "rgba(238, 0, 255, 0.9)",
+              secondary: "#111",
             },
           },
         }}
@@ -143,9 +143,10 @@ const Page = () => {
                   Available for work
                 </span>
               </div>
-              <button 
+              <button
                 onClick={notifyUnavailable}
-                className="px-4 py-2 text-white border border-white/20 rounded-full text-sm hover:bg-white/10 transition-all">
+                className="px-4 py-2 text-white border border-white/20 rounded-full text-sm hover:bg-white/10 transition-all"
+              >
                 BLOGS
               </button>
             </nav>
@@ -211,17 +212,19 @@ const Page = () => {
 
               {/* Mobile resume button */}
               <div className="md:hidden flex justify-end mb-3">
-                <button 
+                <button
                   onClick={downloadResume}
-                  className="font-inter mb-2 bg-[#ffffff08] font-medium text-white/70 text-xs border border-white/10 px-3 py-1.5 rounded-full hover:bg-[#ffffff12] transition-all ease-out duration-200 hover:scale-[1.025]">
+                  className="font-inter mb-2 bg-[#ffffff08] font-medium text-white/70 text-xs border border-white/10 px-3 py-1.5 rounded-full hover:bg-[#ffffff12] transition-all ease-out duration-200 hover:scale-[1.025]"
+                >
                   Download Resume
                 </button>
               </div>
 
               <div className="mb-4 md:mb-5 hidden md:block">
-                <button 
+                <button
                   onClick={downloadResume}
-                  className="font-inter bg-[#ffffff08] font-medium text-white/70 text-sm border border-white/10 px-4 py-2 rounded-full hover:bg-[#ffffff12] transition-all ease-out duration-200 hover:scale-[1.025]">
+                  className="font-inter bg-[#ffffff08] font-medium text-white/70 text-sm border border-white/10 px-4 py-2 rounded-full hover:bg-[#ffffff12] transition-all ease-out duration-200 hover:scale-[1.025]"
+                >
                   Download Resume
                 </button>
               </div>
@@ -263,13 +266,13 @@ const Page = () => {
                   rel="noopener noreferrer"
                   className="text-white/50 hover:text-white transition-colors"
                 >
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    className="h-5 w-5" 
-                    fill="currentColor" 
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    fill="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/>
+                    <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z" />
                   </svg>
                 </a>
               </div>
@@ -298,9 +301,10 @@ const Page = () => {
                   feel free to reach out!
                 </p>
 
-                <button 
+                <button
                   onClick={() => lenisRef.current?.scrollTo("#contact-section")}
-                  className="mt-4 sm:px-6 sm:py-3 px-4 py-2 border-2 border-[#bcbcbc] text-white bg-[#06449114] font-medium rounded-xl hover:bg-[#8306912e] hover:scale-[1.03] transition-all ease-in-out duration-300 text-sm tracking-wider">
+                  className="mt-4 sm:px-6 sm:py-3 px-4 py-2 border-2 border-[#bcbcbc] text-white bg-[#06449114] font-medium rounded-xl hover:bg-[#8306912e] hover:scale-[1.03] transition-all ease-in-out duration-300 text-sm tracking-wider"
+                >
                   CONTACT ME
                 </button>
               </div>
@@ -375,15 +379,19 @@ const Page = () => {
                 </p>
 
                 <div className="flex flex-wrap gap-3 sm:gap-4">
-                  <button 
-                    onClick={() => window.open("https://unchainedgpt.com/", "_blank")}
-                    className="px-3 sm:px-4 py-1.5 sm:py-2 border-2 border-[#00eeff]/30 text-[#00eeff]/80 bg-[#00eeff]/5 rounded-xl hover:bg-[#00eeff16] transition-all ease-out hover:scale-[1.028] duration-300 text-xs sm:text-sm tracking-wider">
+                  <button
+                    onClick={() =>
+                      window.open("https://unchainedgpt.com/", "_blank")
+                    }
+                    className="px-3 sm:px-4 py-1.5 sm:py-2 border-2 border-[#00eeff]/30 text-[#00eeff]/80 bg-[#00eeff]/5 rounded-xl hover:bg-[#00eeff16] transition-all ease-out hover:scale-[1.028] duration-300 text-xs sm:text-sm tracking-wider"
+                  >
                     View Website
                   </button>
 
-                  <button 
+                  <button
                     onClick={notifyUnavailable}
-                    className="px-3 sm:px-4 py-1.5 sm:py-2 border-2 border-[#666666] text-[#bdbdbd] bg-[#747474]/5 rounded-xl hover:bg-[#262626] transition-all ease-out hover:scale-[1.028] duration-300 text-xs sm:text-sm tracking-wider">
+                    className="px-3 sm:px-4 py-1.5 sm:py-2 border-2 border-[#666666] text-[#bdbdbd] bg-[#747474]/5 rounded-xl hover:bg-[#262626] transition-all ease-out hover:scale-[1.028] duration-300 text-xs sm:text-sm tracking-wider"
+                  >
                     Case Study
                   </button>
                 </div>
@@ -472,9 +480,10 @@ const Page = () => {
                     >
                       View Website
                     </button>
-                    <button 
+                    <button
                       onClick={notifyUnavailable}
-                      className="px-3 sm:px-4 py-1 sm:py-1.5 border-2 border-[#666666] text-[#bdbdbd] bg-[#747474]/5 rounded-xl hover:bg-[#262626] transition-all ease-out hover:scale-[1.028] duration-300 text-[0.7rem] sm:text-[0.8rem] tracking-wider whitespace-nowrap">
+                      className="px-3 sm:px-4 py-1 sm:py-1.5 border-2 border-[#666666] text-[#bdbdbd] bg-[#747474]/5 rounded-xl hover:bg-[#262626] transition-all ease-out hover:scale-[1.028] duration-300 text-[0.7rem] sm:text-[0.8rem] tracking-wider whitespace-nowrap"
+                    >
                       Case Study
                     </button>
                   </div>
@@ -492,7 +501,9 @@ const Page = () => {
               }}
               className="inline-flex items-center group"
             >
-              <span className="mr-1.5 text-xs sm:text-sm font-medium text-[#959595] group-hover:text-[#f5f5f5] transition-colors duration-300">SEE ALL PROJECTS</span>
+              <span className="mr-1.5 text-xs sm:text-sm font-medium text-[#959595] group-hover:text-[#f5f5f5] transition-colors duration-300">
+                SEE ALL PROJECTS
+              </span>
               <span className="group-hover:translate-x-1 transition-transform duration-300">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -526,39 +537,59 @@ const Page = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 min-h-[400px] sm:gap-10 md:gap-16">
-            <div 
+            <div
               className="bg-gradient-to-br from-[#0f0f0f] to-[#131313] rounded-xl p-6 sm:p-7 md:p-8 border border-white/5 transition-all duration-500 ease-out h-full flex flex-col relative overflow-hidden group hover:shadow-[0_0_25px_rgba(238,0,255,0.09)] hover:border-[#ee00ff20]"
               data-aos="fade-right"
               data-aos-duration="1000"
             >
-              
               <div className="flex items-center mb-5">
-                <h3 className="text-white text-xl sm:text-xl md:text-2xl unselectable font-medium ml-3">My Journey</h3>
+                <h3 className="text-white text-xl sm:text-xl md:text-2xl unselectable font-medium ml-3">
+                  My Journey
+                </h3>
               </div>
-              
+
               <div className="space-y-4 sm:space-y-5 flex-grow relative z-10">
                 <p className="text-white/80 text-xs sm:text-sm leading-relaxed border-l-2 border-[#ee00ff]/30 pl-3 py-1">
-                  My fascination with coding began in high school when I watched my friends build impressive websites and Discord Bots, sparking my curiosity about programming. What started as simple experimentation quickly turned into a deep passion. I spent countless nights teaching myself Python before gradually transitioning to web development.
-                </p>
-                
-                <p className="text-white/80 text-xs sm:text-sm leading-relaxed border-l-2 border-[#8000ff]/30 pl-3 py-1">
-                  Throughout my journey, I've built numerous projects some successful, many failures but each one taught me valuable lessons. Along the way, I've connected with incredible people who have influenced my growth. In this time I built a website for someone, and for the first time, I got paid for my work. That's when I realized this wasn't just a hobby it was something I could turn into a career. 
-                </p>
-                
-                <p className="text-white/80 text-xs sm:text-sm leading-relaxed border-l-2 border-[#00eeff]/30 pl-3 py-1">
-                  Running a development agency has let me work with incredible people and tackle complex challenges across industries. Each project has sharpened my problem solving skills and understanding of scalable solutions. And this is just the beginning I'm now diving into Rust, Flutter, and C/C++ to take on even bigger challenges.
+                  My fascination with coding began in high school when I watched
+                  my friends build impressive websites and Discord Bots,
+                  sparking my curiosity about programming. What started as
+                  simple experimentation quickly turned into a deep passion. I
+                  spent countless nights teaching myself Python before gradually
+                  transitioning to web development.
                 </p>
 
-                <div className='flex gap-4 pt-3 md:pt-2'>
+                <p className="text-white/80 text-xs sm:text-sm leading-relaxed border-l-2 border-[#8000ff]/30 pl-3 py-1">
+                  Throughout my journey, I've built numerous projects some
+                  successful, many failures but each one taught me valuable
+                  lessons. Along the way, I've connected with incredible people
+                  who have influenced my growth. In this time I built a website
+                  for someone, and for the first time, I got paid for my work.
+                  That's when I realized this wasn't just a hobby it was
+                  something I could turn into a career.
+                </p>
+
+                <p className="text-white/80 text-xs sm:text-sm leading-relaxed border-l-2 border-[#00eeff]/30 pl-3 py-1">
+                  Running a development agency has let me work with incredible
+                  people and tackle complex challenges across industries. Each
+                  project has sharpened my problem solving skills and
+                  understanding of scalable solutions. And this is just the
+                  beginning I'm now diving into Rust, Flutter, and C/C++ to take
+                  on even bigger challenges.
+                </p>
+
+                <div className="flex gap-4 pt-3 md:pt-2">
                   <button
-                    onClick={() => lenisRef.current?.scrollTo("#contact-section")}
+                    onClick={() =>
+                      lenisRef.current?.scrollTo("#contact-section")
+                    }
                     className="px-3 unselectable sm:px-4 py-1.5 sm:py-2 border-2 border-[#ee00ff]/50 text-[#ee00ff]/80 bg-[#ee00ff]/10 rounded-xl hover:bg-[#ee00ff1f] transition-all ease-out hover:scale-[1.028] duration-300 text-[0.78rem] sm:text-[0.82rem] tracking-wider whitespace-nowrap"
                   >
                     Contact Me
                   </button>
-                  <button 
+                  <button
                     onClick={downloadResume}
-                    className="px-3 unselectable sm:px-4 py-1.5 sm:py-2 border-2 border-[#666666] text-[#bdbdbd] bg-[#747474]/5 rounded-xl hover:bg-[#262626] transition-all ease-out hover:scale-[1.028] duration-300 text-[0.78rem] sm:text-[0.82rem] tracking-wider whitespace-nowrap">
+                    className="px-3 unselectable sm:px-4 py-1.5 sm:py-2 border-2 border-[#666666] text-[#bdbdbd] bg-[#747474]/5 rounded-xl hover:bg-[#262626] transition-all ease-out hover:scale-[1.028] duration-300 text-[0.78rem] sm:text-[0.82rem] tracking-wider whitespace-nowrap"
+                  >
                     Download Resume
                   </button>
                 </div>
@@ -566,7 +597,7 @@ const Page = () => {
             </div>
 
             {/* Right side - Timeline with enhanced styling */}
-            <div 
+            <div
               className="relative unselectable mt-2 md:mt-0 h-full flex flex-col"
               data-aos="fade-left"
               data-aos-duration="1000"
@@ -574,14 +605,15 @@ const Page = () => {
             >
               <div className="relative h-full flex flex-col">
                 <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#ee00ff]/40 via-[#8000ff]/40 to-[#00eeff]/40 ml-[7px] rounded-full"></div>
-                
+
                 <div className="flex flex-col justify-between h-full">
                   {[
                     {
                       title: "Web Developer & Owner",
                       date: "2023 - Present",
                       company: "Luvo Web",
-                      description: "My development agency which specializes in building high-quality websites for clients across various industries, including businesses backed by Y Combinator and other renowned accelerators.",
+                      description:
+                        "My development agency which specializes in building high-quality websites for clients across various industries, including businesses backed by Y Combinator and other renowned accelerators.",
                       borderColor: "border-[#ee00ff]/50",
                       bgColor: "bg-[#ee00ff]/20",
                       // icon: "🚀"
@@ -590,7 +622,8 @@ const Page = () => {
                       title: "Senior Frontend Developer",
                       date: "2024 - Present",
                       company: "IEEE CS",
-                      description: "I'm a part of IEEE CS's Tech Team, where I've contributed to various projects and events, organizing hackathons, workshops, and competitions to help students and developers grow.",
+                      description:
+                        "I'm a part of IEEE CS's Tech Team, where I've contributed to various projects and events, organizing hackathons, workshops, and competitions to help students and developers grow.",
                       borderColor: "border-[#8000ff]/50",
                       bgColor: "bg-[#8000ff]/20",
                       // icon: "💻"
@@ -599,29 +632,52 @@ const Page = () => {
                       title: "Fullstack Developer",
                       date: "2024 - 2025",
                       company: "Randomize Tech",
-                      description: "Led development of the official fest website and event management system, handling 1000+ registrations for 5+ technical events while assisting in event organization and execution.",
+                      description:
+                        "Led development of the official fest website and event management system, handling 1000+ registrations for 5+ technical events while assisting in event organization and execution.",
                       borderColor: "border-[#00eeff]/50",
                       bgColor: "bg-[#00eeff]/20",
                       // icon: "🌐"
-                    }
+                    },
                   ].map((entry, index) => (
-                    <div key={index} className="relative pl-8 sm:pl-10 group mb-8 last:mb-0 md:mb-0">
-                      <div className={`absolute left-0 top-[10px] w-[16px] h-[16px] rounded-full bg-[#111111] border-2 ${entry.borderColor} group-hover:scale-125 transition-all duration-300 z-10`}>
-                        <div className="absolute inset-0 rounded-full animate-ping opacity-30" style={{backgroundColor: entry.bgColor.replace('bg-', '').replace('/20', '/10')}}></div>
+                    <div
+                      key={index}
+                      className="relative pl-8 sm:pl-10 group mb-8 last:mb-0 md:mb-0"
+                    >
+                      <div
+                        className={`absolute left-0 top-[10px] w-[16px] h-[16px] rounded-full bg-[#111111] border-2 ${entry.borderColor} group-hover:scale-125 transition-all duration-300 z-10`}
+                      >
+                        <div
+                          className="absolute inset-0 rounded-full animate-ping opacity-30"
+                          style={{
+                            backgroundColor: entry.bgColor
+                              .replace("bg-", "")
+                              .replace("/20", "/10"),
+                          }}
+                        ></div>
                       </div>
-                      
-                      <div className={`opacity-0 group-hover:opacity-100 absolute -left-2 top-[10px] w-6 h-6 ${entry.bgColor} rounded-full blur-xl transition-all duration-500`}></div>
-                      
+
+                      <div
+                        className={`opacity-0 group-hover:opacity-100 absolute -left-2 top-[10px] w-6 h-6 ${entry.bgColor} rounded-full blur-xl transition-all duration-500`}
+                      ></div>
+
                       <div className="bg-gradient-to-br from-[#111111] to-[#131313] rounded-xl p-5 sm:p-6 border border-white/5 transform group-hover:translate-x-[6px] transition-all duration-300 hover:shadow-[0_5px_15px_rgba(0,0,0,0.2)] hover:border-white/10">
                         <div className="flex items-start justify-between">
                           <div className="flex items-center">
                             {/* <span className="text-xl mr-2">{entry.icon}</span> */}
-                            <h4 className="text-white font-medium text-sm sm:text-base">{entry.title}</h4>
+                            <h4 className="text-white font-medium text-sm sm:text-base">
+                              {entry.title}
+                            </h4>
                           </div>
-                          <span className="text-[#00eeffb6] md:text-xs text-[0.6rem] font-medium bg-[#00eeff]/5 px-2 py-1 rounded-full">{entry.date}</span>
+                          <span className="text-[#00eeffb6] md:text-xs text-[0.6rem] font-medium bg-[#00eeff]/5 px-2 py-1 rounded-full">
+                            {entry.date}
+                          </span>
                         </div>
-                        <div className="text-[#ffffff8f] text-xs sm:text-sm mb-2.5 font-medium">{entry.company}</div>
-                        <p className="text-white/70 text-xs leading-relaxed md:w-[80%]">{entry.description}</p>
+                        <div className="text-[#ffffff8f] text-xs sm:text-sm mb-2.5 font-medium">
+                          {entry.company}
+                        </div>
+                        <p className="text-white/70 text-xs leading-relaxed md:w-[80%]">
+                          {entry.description}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -629,7 +685,6 @@ const Page = () => {
               </div>
             </div>
           </div>
-
         </div>
 
         {/* Contact Me Section */}
@@ -650,49 +705,106 @@ const Page = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             {/* Left side - Contact Info */}
-            <div 
+            <div
               className="bg-gradient-to-br from-[#0f0f0f] to-[#131313] rounded-xl p-6 sm:p-7 md:p-8 border border-white/5 transition-all duration-500 ease-out h-full flex flex-col relative overflow-hidden group hover:shadow-[0_0_25px_rgba(0,238,255,0.05)] hover:border-[#00eeff20]"
               data-aos="fade-right"
               data-aos-duration="1000"
             >
               <div className="flex items-center mb-5">
-                <h3 className="text-white text-xl sm:text-xl md:text-2xl unselectable font-medium">Let's Connect</h3>
+                <h3 className="text-white text-xl sm:text-xl md:text-2xl unselectable font-medium">
+                  Let's Connect
+                </h3>
               </div>
-              
+
               <div className="space-y-5 flex-grow relative z-10">
                 <p className="text-white/80 unselectable text-xs sm:text-sm leading-relaxed border-l-2 border-[#00eeff]/30 pl-4 py-1">
-                  I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision. Whether you have a question or just want to say hi, I'll get back to you as soon as possible!
+                  I'm always open to discussing new projects, creative ideas or
+                  opportunities to be part of your vision. Whether you have a
+                  question or just want to say hi, I'll get back to you as soon
+                  as possible!
                 </p>
-                
+
                 <div className="mt-6 group cursor-pointer">
                   <div className="flex items-center mb-4 group cursor-pointer">
                     <div className="w-10 h-10 rounded-full bg-[#00eeff]/10  flex items-center justify-center mr-4 transition-all duration-300">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#00eeff]/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 text-[#00eeff]/80"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={1.5}
+                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                        />
                       </svg>
                     </div>
                     <div>
-                      <p className="text-white/50 text-xs uppercase tracking-wider unselectable mb-1">Email</p>
-                      <p onClick={() => window.open('mailto:siddz.dev@gmail.com')} className="text-sm font-medium text-[#00eeffd2] transition-colors hover:underline duration-300">siddz.dev@gmail.com</p>
+                      <p className="text-white/50 text-xs uppercase tracking-wider unselectable mb-1">
+                        Email
+                      </p>
+                      <p
+                        onClick={() =>
+                          window.open("mailto:siddz.dev@gmail.com")
+                        }
+                        className="text-sm font-medium text-[#00eeffd2] transition-colors hover:underline duration-300"
+                      >
+                        siddz.dev@gmail.com
+                      </p>
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="mt-8 pt-6 border-t border-white/5">
-                  <p className="text-white/70 text-xs mb-4 unselectable">Connect with me on social media</p>
+                  <p className="text-white/70 text-xs mb-4 unselectable">
+                    Connect with me on social media
+                  </p>
                   <div className="flex space-x-3">
-                    <a href="https://github.com/SiddDevZ" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-[#ffffff0c] flex items-center justify-center text-white/50 hover:text-white hover:bg-[#ffffff12] transition-all duration-300 hover:scale-110">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                    <a
+                      href="https://github.com/SiddDevZ"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-9 h-9 rounded-full bg-[#ffffff0c] flex items-center justify-center text-white/50 hover:text-white hover:bg-[#ffffff12] transition-all duration-300 hover:scale-110"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                       </svg>
                     </a>
-                    <a href="https://discordapp.com/users/273352781442842624" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-[#ffffff0c] flex items-center justify-center text-white/50 hover:text-white hover:bg-[#ffffff12] transition-all duration-300 hover:scale-110">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/>
+                    <a
+                      href="https://discordapp.com/users/273352781442842624"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-9 h-9 rounded-full bg-[#ffffff0c] flex items-center justify-center text-white/50 hover:text-white hover:bg-[#ffffff12] transition-all duration-300 hover:scale-110"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z" />
                       </svg>
                     </a>
-                    <a href="https://x.com/epicsidd" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-[#ffffff0c] flex items-center justify-center text-white/50 hover:text-white hover:bg-[#ffffff12] transition-all duration-300 hover:scale-110">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                    <a
+                      href="https://x.com/epicsidd"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-9 h-9 rounded-full bg-[#ffffff0c] flex items-center justify-center text-white/50 hover:text-white hover:bg-[#ffffff12] transition-all duration-300 hover:scale-110"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
                         <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
                       </svg>
                     </a>
@@ -702,7 +814,7 @@ const Page = () => {
             </div>
 
             {/* Right side - Contact Form */}
-            <div 
+            <div
               className="bg-gradient-to-br from-[#0f0f0f] to-[#131313] rounded-xl p-6 sm:p-7 md:p-8 border border-white/5 transition-all duration-500 ease-out h-full flex flex-col relative overflow-hidden group hover:shadow-[0_0_25px_rgba(238,0,255,0.05)] hover:border-[#ee00ff20]"
               data-aos="fade-left"
               data-aos-duration="1000"
@@ -713,19 +825,14 @@ const Page = () => {
           </div>
         </div>
 
-        <div className='max-w-[100rem] mx-auto relative z-10'>
-          
-        </div>
+        <div className="max-w-[100rem] mx-auto relative z-10"></div>
 
         {/* Add Testimonials section here */}
         <Testimonials />
 
         {/* Add Footer section here */}
         <Footer />
-
       </div>
-
-
     </>
   );
 };
