@@ -5,11 +5,6 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  mode: 'jit', // Enable JIT for faster builds and smaller CSS
-  future: {
-    hoverOnlyWhenSupported: true, // Optimize for mobile
-    respectDefaultRingColorOpacity: true,
-  },
   theme: {
     extend: {
       screens: {
@@ -25,17 +20,5 @@ module.exports = {
       }
     },
   },
-  variants: {
-    extend: {},
-  },
   plugins: [],
-  corePlugins: {
-    container: false,
-    placeholderOpacity: false,
-    ringOpacity: false,
-    divideOpacity: false,
-    backgroundOpacity: false,
-    textOpacity: false,
-    borderOpacity: false,
-  },
 };
