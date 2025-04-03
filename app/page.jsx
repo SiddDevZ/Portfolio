@@ -1,12 +1,22 @@
 "use client";
 import React from "react";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, lazy, Suspense } from "react";
+import Image from "next/image";
+import dynamic from "next/dynamic";
 import Lenis from "@studio-freight/lenis";
 import Terminal from "./components/Terminal";
-import ContactForm from "./components/ContactForm";
 import { Toaster, toast } from "react-hot-toast";
-import Testimonials from "./components/Testimonials";
-import Footer from "./components/Footer";
+
+const ContactForm = dynamic(() => import("./components/ContactForm"), {
+  ssr: true,
+  loading: () => <div className="min-h-[300px] flex items-center justify-center"><div className="animate-pulse text-white/50">Loading form...</div></div>
+});
+const Testimonials = dynamic(() => import("./components/Testimonials"), {
+  ssr: false
+});
+const Footer = dynamic(() => import("./components/Footer"), {
+  ssr: true
+});
 
 const Page = () => {
   const lenisRef = useRef();
@@ -94,7 +104,6 @@ const Page = () => {
           },
         }}
       />
-      {/* Custom animation for smooth pulse */}
       <style jsx global>{`
         @keyframes smoothPulse {
           0% {
@@ -122,7 +131,7 @@ const Page = () => {
           style={{
             opacity: "0.04",
             background:
-              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")",
+              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")",
           }}
         />
 
@@ -152,7 +161,7 @@ const Page = () => {
             </nav>
           </header>
 
-          {/* Hero Content */}
+          {/* Hero Content with optimization */}
           <div className="flex flex-col md:flex-row flex-1 max-h-[100rem] md:pt-0">
             {/* Left section - stays at bottom on mobile, left on desktop */}
             <div className="md:w-1/3 flex flex-col justify-between md:justify-end pb-10 md:pb-10 mt-10 md:mt-0 relative order-last md:order-first">
@@ -337,7 +346,7 @@ const Page = () => {
           </div>
         </div>
 
-        {/* Projects Section */}
+        {/* Projects Section with image optimization */}
         <div
           id="projects-section"
           className="px-4 unselectable sm:px-6 py-16 sm:py-24 md:px-12 md:py-32 lg:px-24 max-w-[100rem] mx-auto relative z-10"
@@ -350,11 +359,17 @@ const Page = () => {
           </div>
 
           <div className="relative cursor-pointer overflow-hidden rounded-xl mb-16 sm:mb-24 border border-white/5 bg-[#111111]">
-            <div className="aspect-[16/9] w-full overflow-hidden">
-              <img
+            <div className="aspect-[16/9] w-full overflow-hidden relative">
+              {/* Replace img with optimized Image component */}
+              <Image
                 src="/unchained.webp"
                 alt="UnchainedGPT Project Image"
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 80vw"
+                priority
+                className="object-cover"
+                loading="eager"
+                quality={85}
               />
             </div>
 
