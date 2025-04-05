@@ -635,7 +635,7 @@ const Page = () => {
                       // icon: "🚀"
                     },
                     {
-                      title: "Senior Frontend Developer",
+                      title: "Working Team (Tech)",
                       date: "2024 - Present",
                       company: "IEEE CS",
                       description:
