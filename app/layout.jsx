@@ -34,16 +34,16 @@ export const metadata = {
     locale: 'en_US',
     url: 'https://siddz.com',
     title: 'Siddharth Meena | Portfolio - Full-Stack Developer & UI/UX Designer',
-    description: 'Siddharth Meena is a full-stack developer with expertise in React, Next.js, Node.js, and UI/UX design. Browse portfolio and projects.',
-    siteName: 'Siddharth Meena Portfolio',
-    images: [
-      {
-        url: 'https://siddz.com/me.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Siddharth Meena - Full-Stack Developer',
-      },
-    ],
+    description: 'Siddharth Meena is a full-stack developer with experience in Next.js, React, Node.js, and UI/UX design. Browse portfolio and projects.',
+    // siteName: 'Siddharth Meena Portfolio',
+    // images: [
+    //   {
+    //     url: 'https://siddz.com/me.webp',
+    //     width: 1200,
+    //     height: 630,
+    //     alt: 'Siddharth Meena - Full-Stack Developer',
+    //   },
+    // ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -78,7 +78,7 @@ export default function RootLayout({ children }) {
                   givenName: 'Siddharth',
                   familyName: 'Meena',
                   url: 'https://siddz.com',
-                  image: 'https://siddz.com/me.webp',
+                  // image: 'https://siddz.com/me.webp',
                   description: 'Siddharth Meena is a full-stack developer specializing in React, Next.js, Node.js, and UI/UX design.',
                   sameAs: [
                     'https://github.com/SiddDevZ',

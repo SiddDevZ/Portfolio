@@ -3,6 +3,7 @@ import React from "react";
 import { useEffect, useState, useRef, lazy, Suspense } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import Lenis from "@studio-freight/lenis";
 import Terminal from "./components/Terminal";
 import { Toaster, toast } from "react-hot-toast";
@@ -153,12 +154,12 @@ const Page = () => {
                   Available for work
                 </span>
               </div>
-              <button
-                onClick={notifyUnavailable}
+              <Link
+                href="/blogs"
                 className="px-4 py-2 text-white border border-white/20 rounded-full text-sm hover:bg-white/10 transition-all"
               >
                 BLOGS
-              </button>
+              </Link>
             </nav>
           </header>
 
@@ -304,7 +305,7 @@ const Page = () => {
                   Crafting Digital Experiences <br />
                   With Code and Design
                 </h1>
-                <p className="text-white/70 sm:w-[85%] md:w-[80%] md:ml-auto w-[95%] text-sm leading-relaxed">
+                <p className="text-white/70 sm:w-[82%] md:w-[75%] md:ml-auto w-[95%] text-sm leading-relaxed">
                   I'm a full-stack developer passionate about coding,
                   problem-solving, and turning ideas into reality. Explore my
                   projects, and if you're looking to collaborate or hire me,
@@ -496,12 +497,12 @@ const Page = () => {
                     >
                       View Website
                     </button>
-                    <button
+                    {/* <button
                       onClick={notifyUnavailable}
                       className="px-3 sm:px-4 py-1 sm:py-1.5 border-2 border-[#666666] text-[#bdbdbd] bg-[#747474]/5 rounded-xl hover:bg-[#262626] transition-all ease-out hover:scale-[1.028] duration-300 text-[0.7rem] sm:text-[0.8rem] tracking-wider whitespace-nowrap"
                     >
                       Case Study
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>

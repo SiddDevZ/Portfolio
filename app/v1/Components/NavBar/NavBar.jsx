@@ -32,7 +32,7 @@ const NavBar = ({ check }) => {
       <Link href="/" className='font-mono text-lg sm:text-xl hover:scale-105 transition-all text-btn cursor-pointer'>&lt;/SiddZ&gt;</Link>
       <div className='flex gap-6 sm:gap-6 lg:gap-[3.15rem] items-center'>
         { check == 1? (
-          <Link href="/blog" className='font-inter text-[#FFFFFF] text-lg sm:text-lg xl:text-xl tracking-wider cursor-pointer hover-underline-animation'>Blog</Link>
+          <Link href="/blogs" className='font-inter text-[#FFFFFF] text-lg sm:text-lg xl:text-xl tracking-wider cursor-pointer hover-underline-animation'>Blog</Link>
         ) : (
           <Link href="/" className='font-inter text-[#ffffff] text-lg sm:text-lg xl:text-xl cursor-pointer hover-underline-animation'>About</Link>
         )}
