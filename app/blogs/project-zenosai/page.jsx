@@ -1,5 +1,4 @@
 import React from "react";
-import Particles from "@/components/ui/particles";
 import "remixicon/fonts/remixicon.css";
 import TechStack from "@/app/v1/Components/TechStack/TechStackb";
 import Link from "next/link";
