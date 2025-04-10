@@ -425,7 +425,7 @@ const Page = () => {
                 image: "/luvo-dark.webp",
                 tech: ["React", "Tailwind", "Vite", "Figma"],
                 color: "#ee00ff",
-                website: "https://luvoweb.com/",
+                website: "https://luvo.siddz.com/",
               },
               {
                 title: "Bantr - Chatting App",
