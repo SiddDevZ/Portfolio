@@ -22,7 +22,7 @@ const testimonials = [
     id: 4,
     name: "Mearda",
     role: "Product Manager",
-    image: "https://cdn.discordapp.com/avatars/1355428869871505533/7d38869eb05d5fdfbb63d5bd2e61a075.webp?size=160",
+    image: "/Photos_2pTzMMvYla.webp",
     content: "As a developer, I had all the code ready, but my website looked terrible. I was feeling stuck until Siddharth helped me explore new ideas and craft a stunning website!",
     color: "#00eeff"
   },
@@ -30,7 +30,7 @@ const testimonials = [
     id: 2,
     name: "Mohd Sameer",
     role: "Digital Marketing",
-    image: "https://scaleoxperts.com/mohd.webp",
+    image: "/mohd.webp",
     content: "Siddharth built us a clean, professional, and user-friendly website while ensuring a smooth process. He was responsive, made changes as needed, and offered great suggestions. Highly recommended!",
     color: "#ee00ff"
   }

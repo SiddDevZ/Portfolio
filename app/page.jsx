@@ -636,8 +636,8 @@ const Page = () => {
                       // icon: "🚀"
                     },
                     {
-                      title: "Working Team (Tech)",
-                      date: "2024 - Present",
+                      title: "Senior Coordinator",
+                      date: "2024 - 2025",
                       company: "IEEE CS",
                       description:
                         "I'm a part of IEEE CS's Tech Team, where I've contributed to various projects and events, organizing hackathons, workshops, and competitions to help students and developers grow.",
@@ -647,7 +647,7 @@ const Page = () => {
                     },
                     {
                       title: "Junior Tech Team",
-                      date: "2024 - 2025",
+                      date: "2024 - Present",
                       company: "Randomize Tech",
                       description:
                         "Led development of the official fest website and event management system, handling 1000+ registrations for 5+ technical events while assisting in event organization and execution.",
