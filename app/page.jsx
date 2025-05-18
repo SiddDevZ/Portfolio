@@ -646,7 +646,7 @@ const Page = () => {
                       // icon: "💻"
                     },
                     {
-                      title: "Fullstack Developer",
+                      title: "Junior Tech Team",
                       date: "2024 - 2025",
                       company: "Randomize Tech",
                       description:
