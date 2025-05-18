@@ -636,11 +636,11 @@ const Page = () => {
                       // icon: "🚀"
                     },
                     {
-                      title: "Senior Coordinator",
+                      title: "Senior Technical Coordinator",
                       date: "2024 - 2025",
                       company: "IEEE CS",
                       description:
-                        "I'm a part of IEEE CS's Tech Team, where I've contributed to various projects and events, organizing hackathons, workshops, and competitions to help students and developers grow.",
+                        "I was a part of IEEE CS's Core Team, where I've contributed to various projects and events, organizing hackathons, workshops, and competitions to help students and developers grow.",
                       borderColor: "border-[#8000ff]/50",
                       bgColor: "bg-[#8000ff]/20",
                       // icon: "💻"
