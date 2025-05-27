@@ -636,7 +636,8 @@ const Page = () => {
                       // icon: "🚀"
                     },
                     {
-                      title: "Senior Technical Coordinator",
+                      // title: "Senior Technical Coordinator",
+                      title: "Working Team",
                       date: "2024 - 2025",
                       company: "IEEE CS",
                       description:
