@@ -11,13 +11,17 @@ import SEOOptimization from "./components/SEOOptimization";
 
 const ContactForm = dynamic(() => import("./components/ContactForm"), {
   ssr: true,
-  loading: () => <div className="min-h-[300px] flex items-center justify-center"><div className="animate-pulse text-white/50">Loading form...</div></div>
+  loading: () => (
+    <div className="min-h-[300px] flex items-center justify-center">
+      <div className="animate-pulse text-white/50">Loading form...</div>
+    </div>
+  ),
 });
 const Testimonials = dynamic(() => import("./components/Testimonials"), {
-  ssr: false
+  ssr: false,
 });
 const Footer = dynamic(() => import("./components/Footer"), {
-  ssr: true
+  ssr: true,
 });
 
 const Page = () => {
@@ -133,7 +137,7 @@ const Page = () => {
           style={{
             opacity: "0.04",
             background:
-              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3.6' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")",
+              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='4.4' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")",
           }}
         />
 
@@ -163,19 +167,14 @@ const Page = () => {
             </nav>
           </header>
 
-          {/* Hero Content with optimization */}
           <div className="flex flex-col md:flex-row flex-1 max-h-[100rem] md:pt-0">
-            {/* Left section - stays at bottom on mobile, left on desktop */}
             <div className="md:w-1/3 flex flex-col justify-between md:justify-end pb-10 md:pb-10 mt-10 md:mt-0 relative order-last md:order-first">
-              {/* Mobile-specific decoration that appears on right */}
               <div className="block md:hidden absolute top-0 right-[-10%] w-[30vw] h-[30vw] bg-purple-500/5 rounded-full blur-[50px] z-0"></div>
 
               <div className="hidden md:block">
                 <div className="relative">
-                  {/* Terminal component */}
                   <Terminal />
 
-                  {/* Stats section */}
                   <div className="grid grid-cols-2 gap-4 mt-3 mb-8 max-w-[200px]">
                     <div className="border-l border-white/10 pl-3 py-1">
                       <div className="text-white/70 text-2xl font-light">
@@ -195,7 +194,6 @@ const Page = () => {
                     </div>
                   </div>
 
-                  {/* Skill tags */}
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-5 max-w-[330px] w-full">
                     <div className="contents">
                       {[
@@ -221,7 +219,6 @@ const Page = () => {
                 </div>
               </div>
 
-              {/* Mobile resume button */}
               <div className="md:hidden flex justify-end mb-3">
                 <button
                   onClick={downloadResume}
@@ -257,7 +254,7 @@ const Page = () => {
                   </svg>
                 </a>
                 <a
-                  href="https://x.com/epicsidd"
+                  href="https://x.com/siddharthz_dev"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/50 hover:text-white transition-colors"
@@ -289,12 +286,10 @@ const Page = () => {
               </div>
             </div>
 
-            {/* Right section on desktop, left on mobile */}
             <div className="md:w-2/3 flex items-center mt-20 md:mt-0 justify-center md:justify-end relative">
               <div className="block md:hidden absolute top-[15%] left-[-10%] w-[30vw] h-[30vw] bg-blue-500/10 rounded-full blur-[50px] z-0"></div>
 
               <div className="text-left md:text-right md:text-[3.35rem] sm:text-[2.8rem] text-[2.5rem] text-[#f4f4f4]">
-                {/* Available for hire indicator - mobile only */}
                 <div className="flex md:hidden items-center mb-4">
                   <span className="w-2 h-2 bg-green-400 rounded-full smooth-pulse mr-2"></span>
                   <span className="text-[#3cb86a] text-xs uppercase">
@@ -306,9 +301,9 @@ const Page = () => {
                   With Code and Design
                 </h1>
                 <p className="text-white/70 sm:w-[82%] md:w-[75%] md:ml-auto w-[95%] text-sm leading-relaxed">
-                  I'm a full-stack developer passionate about coding,
+                  I'm a developer passionate about coding,
                   problem-solving, and turning ideas into reality. Explore my
-                  projects, and if you're looking to collaborate or hire me,
+                  projects here, and if you're looking to collaborate or hire me,
                   feel free to reach out!
                 </p>
 
@@ -348,7 +343,6 @@ const Page = () => {
           </div>
         </div>
 
-        {/* Projects Section with image optimization */}
         <div
           id="projects-section"
           className="px-4 unselectable sm:px-6 py-16 sm:py-24 md:px-12 md:py-32 lg:px-24 max-w-[100rem] mx-auto relative z-10"
@@ -362,10 +356,9 @@ const Page = () => {
 
           <div className="relative cursor-pointer overflow-hidden rounded-xl mb-16 sm:mb-24 border border-white/5 bg-[#111111]">
             <div className="aspect-[16/9] w-full overflow-hidden relative">
-              {/* Replace img with optimized Image component */}
               <Image
-                src="/unchained.webp"
-                alt="UnchainedGPT - Advanced AI ChatBot project by Siddharth Meena featuring multiple AI models and a modern user interface"
+                src="/lumeroo.webp"
+                alt="Lumeroo - Streaming Platform built with modern web stack by Siddharth Meena"
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 80vw"
                 priority
@@ -385,21 +378,18 @@ const Page = () => {
                 </div>
 
                 <h3 className="text-white text-xl sm:text-2xl md:text-3xl mb-2">
-                  UnchainedGPT - AI ChatBot
+                  Lumeroo - Streaming Platform
                 </h3>
 
                 <p className="text-white/70 text-xs sm:text-sm max-w-2xl mb-4">
-                  An AI-powered platform built with Next.js that brings multiple
-                  AI models together in one place for free. Seamlessly
-                  integrates to let users create, explore, and experiment
-                  without restrictions.
+                  A modern streaming platform with support for video/image
+                  uploads, HLS playback, profiles, comments, and full content
+                  discovery — built with a focus on performance and design.
                 </p>
 
                 <div className="flex flex-wrap gap-3 sm:gap-4">
                   <button
-                    onClick={() =>
-                      window.open("https://unchainedgpt.com/", "_blank")
-                    }
+                    onClick={() => window.open("https://lumeroo.live/", "_blank")}
                     className="px-3 sm:px-4 py-1.5 sm:py-2 border-2 border-[#00eeff]/30 text-[#00eeff]/80 bg-[#00eeff]/5 rounded-xl hover:bg-[#00eeff16] transition-all ease-out hover:scale-[1.028] duration-300 text-xs sm:text-sm tracking-wider"
                   >
                     View Website
@@ -419,6 +409,21 @@ const Page = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
             {[
               {
+                title: "UnchainedGPT",
+                description:
+                  "AI chatbot platform offering access to multiple AI models for free with real-time communication.",
+                image: "/unchainedgpt.webp",
+                tech: [
+                  "Next.js",
+                  "Tailwind",
+                  "MongoDB",
+                  "Socket.IO",
+                  "Hono.js",
+                ],
+                color: "#00eeff",
+                website: "https://unchainedgpt.com/",
+              },
+              {
                 title: "Luvo Web",
                 description:
                   "Luvo Web is my web development agency focused on crafting responsive and engaging websites.",
@@ -426,15 +431,6 @@ const Page = () => {
                 tech: ["React", "Tailwind", "Vite", "Figma"],
                 color: "#ee00ff",
                 website: "https://luvo.siddz.com/",
-              },
-              {
-                title: "Bantr - Chatting App",
-                description:
-                  "Real-Time chatting app similar to Discord. Servers, channels, direct messages, and much more..",
-                image: "/bantr.webp",
-                tech: ["React", "Node.js", "Socket.io", "Express.js"],
-                color: "#00eeff",
-                website: "https://bantr.siddz.com/",
               },
               {
                 title: "ScaleOxPerts Website",
@@ -447,13 +443,13 @@ const Page = () => {
                 website: "https://scaleoxperts.com/",
               },
               {
-                title: "Interactive Bio Page",
+                title: "Bantr - Chatting App",
                 description:
-                  "An interactive bio page made as an freelance project, built with Next.js and Tailwind CSS.",
-                image: "https://i.imgur.com/F8e75A9.jpeg",
-                tech: ["Next.js", "Tailwind", "Figma"],
+                  "Real-Time chatting app similar to Discord. Servers, channels, direct messages, and much more..",
+                image: "/bantr.webp",
+                tech: ["React", "Node.js", "Socket.io", "Express.js"],
                 color: "#00eeff",
-                website: "https://betray.pro/",
+                website: "https://bantr.siddz.com/",
               },
             ].map((project, index) => (
               <div
@@ -463,7 +459,6 @@ const Page = () => {
                 <div className="aspect-[16/9] w-full overflow-hidden">
                   <img
                     src={project.image}
-                    alt={`${project.title} - Web development project by Siddharth Meena featuring ${project.tech.join(", ")}`}
                     className={`w-full h-full object-cover transition-transform duration-500 ${
                       project.white ? "opacity-[0.93]" : ""
                     }`}
@@ -541,7 +536,6 @@ const Page = () => {
           </div>
         </div>
 
-        {/* About Me Section */}
         <div
           id="about-section"
           className="px-4 sm:px-6 py-8 sm:py-8 md:px-12 lg:px-24 max-w-[100rem] mx-auto relative z-10"
@@ -613,7 +607,6 @@ const Page = () => {
               </div>
             </div>
 
-            {/* Right side - Timeline with enhanced styling */}
             <div
               className="relative unselectable mt-2 md:mt-0 h-full flex flex-col"
               data-aos="fade-left"
@@ -636,19 +629,18 @@ const Page = () => {
                       // icon: "🚀"
                     },
                     {
-                      // title: "Senior Technical Coordinator",
-                      title: "Working Team",
-                      date: "2024 - 2025",
+                      title: "Senior Technical Coordinator",
+                      date: "2024 - Present",
                       company: "IEEE CS",
                       description:
-                        "I was a part of IEEE CS's Core Team, where I've contributed to various projects and events, organizing hackathons, workshops, and competitions to help students and developers grow.",
+                        "I am a part of IEEE CS's Core Team, where I've contributed to various projects and events, organizing hackathons, workshops, and competitions to help students and developers grow.",
                       borderColor: "border-[#8000ff]/50",
                       bgColor: "bg-[#8000ff]/20",
                       // icon: "💻"
                     },
                     {
                       title: "Junior Tech Team",
-                      date: "2024 - Present",
+                      date: "2024 - 2025",
                       company: "Randomize Tech",
                       description:
                         "Led development of the official fest website and event management system, handling 1000+ registrations for 5+ technical events while assisting in event organization and execution.",
@@ -705,7 +697,6 @@ const Page = () => {
           </div>
         </div>
 
-        {/* Contact Me Section */}
         <div
           id="contact-section"
           className="px-4 sm:px-6 py-14 sm:py-20 md:px-12 lg:px-24 max-w-[100rem] mx-auto relative z-10"
@@ -717,7 +708,6 @@ const Page = () => {
             </h2>
           </div>
 
-          {/* Background decorations */}
           <div className="absolute top-[40%] left-[5%] w-[30vw] h-[30vw] max-w-[300px] max-h-[300px] bg-[#ee00ff0a] rounded-full blur-[120px] z-0"></div>
           <div className="absolute bottom-[10%] right-[10%] w-[25vw] h-[25vw] max-w-[250px] max-h-[250px] bg-[#00eeff0a] rounded-full blur-[100px] z-0"></div>
 
