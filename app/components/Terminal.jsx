@@ -5,7 +5,7 @@ const Terminal = () => {
   // Terminal state
   const [input, setInput] = useState('')
   const [commandHistory, setCommandHistory] = useState([
-    { text: 'Welcome to Siddharth\'s Portfolio v3.0.3', type: 'system-title' },
+    { text: 'Welcome to Siddharth\'s Portfolio v3.0.8', type: 'system-title' },
     { text: '© 2025 Siddharth Meena. All rights reserved.', type: 'system-copyright' },
     { text: 'Type "help" to see available commands.', type: 'system' }
   ])

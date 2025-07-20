@@ -32,7 +32,7 @@ const Page = () => {
           </header>
           <div className="main flex flex-col sm:pt-16 items-center px-7 animate-in">
             <div className="mt-2 main-area sm:py-10 xss:py-7 px-10 main-area mb-5 flex flex-col items-center justify-center border border-[#2e2e2e] w-[65rem] sm:max-w-[90vw] xss:max-w-[93.5vw] relative">
-              <div className="absolute sm:-top-[1.15rem] sm:-left-3 xs:-top-[0.65rem] xss:-left-1 xss:-top-[0.5rem] sm:w-6 sm:h-6 xss:w-2 xss:h-2 bg-black flex items-center justify-center">
+              <div className="absolute sm:-top-[1.15rem] sm:-left-3 xs:-top-[0.65rem] xss:-left-1 xss:-top-[0.5rem] sm:w-6 sm:h-6 xss:w-2 xss:h-2 flex items-center justify-center">
                 <span className="text-[#606060] sm:text-7xl xs:text-6xl xss:text-4xl font-[50]">+</span>
               </div>
               <div className="max-w-[42.5rem] w-full flex flex-col items-center">

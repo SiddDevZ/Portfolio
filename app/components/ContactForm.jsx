@@ -19,23 +19,6 @@ const ContactForm = () => {
   const [canResend, setCanResend] = useState(true);
   
   useEffect(() => {
-    const handleTouchMove = (e) => {
-      e.stopPropagation();
-    };
-
-    const inputs = document.querySelectorAll('input, textarea');
-    inputs.forEach(input => {
-      input.addEventListener('touchmove', handleTouchMove, { passive: true });
-    });
-
-    return () => {
-      inputs.forEach(input => {
-        input.removeEventListener('touchmove', handleTouchMove);
-      });
-    };
-  }, []);
-
-  useEffect(() => {
     emailjs.init("LkCnVmcFfXTXGYbVF");
   }, []);
 
@@ -129,7 +112,7 @@ const ContactForm = () => {
   };
 
   return (
-    <form className="relative z-20 h-full flex flex-col" onSubmit={handleSubmit} style={{ overscrollBehavior: 'none' }}>
+    <form className="relative z-20 h-full flex flex-col" onSubmit={handleSubmit}>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
         <div className="relative">
           <input 
@@ -214,4 +197,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm; 
+export default ContactForm;

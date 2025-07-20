@@ -4,10 +4,10 @@ import { useEffect, useState, useRef, lazy, Suspense } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import Lenis from "@studio-freight/lenis";
 import Terminal from "./components/Terminal";
 import { Toaster, toast } from "react-hot-toast";
 import SEOOptimization from "./components/SEOOptimization";
+import { useLenis } from "./components/SmoothScrollProvider";
 
 const ContactForm = dynamic(() => import("./components/ContactForm"), {
   ssr: true,
@@ -25,7 +25,7 @@ const Footer = dynamic(() => import("./components/Footer"), {
 });
 
 const Page = () => {
-  const lenisRef = useRef();
+  const lenis = useLenis();
 
   const notifyUnavailable = () => {
     toast.error("This page is under construction. Stay tuned!");
@@ -34,42 +34,6 @@ const Page = () => {
   const downloadResume = () => {
     window.open("/Siddharth_Resume.pdf", "_blank");
   };
-
-  useEffect(() => {
-    lenisRef.current = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: "vertical",
-      gestureDirection: "vertical",
-      smooth: true,
-      smoothTouch: false,
-      touchMultiplier: 2,
-      wheelMultiplier: 1,
-      normalizeWheel: true,
-      infinite: false,
-    });
-
-    const inputElements = document.querySelectorAll("input, textarea");
-    inputElements.forEach((input) => {
-      input.addEventListener("focus", () => {
-        if (lenisRef.current) lenisRef.current.stop();
-      });
-      input.addEventListener("blur", () => {
-        if (lenisRef.current) lenisRef.current.start();
-      });
-    });
-
-    function raf(time) {
-      lenisRef.current?.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenisRef.current?.destroy();
-    };
-  }, []);
 
   return (
     <>
@@ -308,7 +272,7 @@ const Page = () => {
                 </p>
 
                 <button
-                  onClick={() => lenisRef.current?.scrollTo("#contact-section")}
+                  onClick={() => lenis.scrollTo("#contact-section")}
                   className="mt-4 sm:px-6 sm:py-3 px-4 py-2 border-2 border-[#bcbcbc] text-white bg-[#06449114] font-medium rounded-xl hover:bg-[#8306912e] hover:scale-[1.03] transition-all ease-in-out duration-300 text-sm tracking-wider"
                 >
                   CONTACT ME
@@ -354,7 +318,7 @@ const Page = () => {
             </h2>
           </div>
 
-          <div className="relative cursor-pointer overflow-hidden rounded-xl mb-16 sm:mb-24 border border-white/5 bg-[#111111]">
+          <div className="relative overflow-hidden rounded-xl mb-16 sm:mb-24 border border-white/5 bg-[#111111]">
             <div className="aspect-[16/9] w-full overflow-hidden relative">
               <Image
                 src="/lumeroo.webp"
@@ -396,10 +360,10 @@ const Page = () => {
                   </button>
 
                   <button
-                    onClick={notifyUnavailable}
+                    onClick={() => window.open("https://github.com/SiddDevZ/Lumeroo", "_blank")}
                     className="px-3 sm:px-4 py-1.5 sm:py-2 border-2 border-[#666666] text-[#bdbdbd] bg-[#747474]/5 rounded-xl hover:bg-[#262626] transition-all ease-out hover:scale-[1.028] duration-300 text-xs sm:text-sm tracking-wider"
                   >
-                    Case Study
+                    Source Code
                   </button>
                 </div>
               </div>
@@ -422,6 +386,7 @@ const Page = () => {
                 ],
                 color: "#00eeff",
                 website: "https://unchainedgpt.com/",
+                github: "https://github.com/SiddDevZ/UnchainedGPT",
               },
               {
                 title: "Luvo Web",
@@ -450,6 +415,7 @@ const Page = () => {
                 tech: ["React", "Node.js", "Socket.io", "Express.js"],
                 color: "#00eeff",
                 website: "https://bantr.siddz.com/",
+                github: "https://github.com/SiddDevZ/Bantr",
               },
             ].map((project, index) => (
               <div
@@ -492,12 +458,14 @@ const Page = () => {
                     >
                       View Website
                     </button>
-                    {/* <button
-                      onClick={notifyUnavailable}
-                      className="px-3 sm:px-4 py-1 sm:py-1.5 border-2 border-[#666666] text-[#bdbdbd] bg-[#747474]/5 rounded-xl hover:bg-[#262626] transition-all ease-out hover:scale-[1.028] duration-300 text-[0.7rem] sm:text-[0.8rem] tracking-wider whitespace-nowrap"
-                    >
-                      Case Study
-                    </button> */}
+                    {project.github && (
+                      <button
+                        onClick={() => window.open(project.github, "_blank")}
+                        className="px-3 sm:px-4 py-1 sm:py-1.5 border-2 border-[#666666] text-[#bdbdbd] bg-[#747474]/5 rounded-xl hover:bg-[#262626] transition-all ease-out hover:scale-[1.028] duration-300 text-[0.7rem] sm:text-[0.8rem] tracking-wider whitespace-nowrap"
+                      >
+                        Source Code
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
@@ -505,12 +473,8 @@ const Page = () => {
           </div>
 
           <div className="flex justify-center underline underline-offset-[6px] text-[#6d6d6d] hover:text-[#d5d5d5] transition-colors duration-300 ease-in-out sm:justify-end mt-8 sm:mt-10">
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                notifyUnavailable();
-              }}
+            <Link
+              href="/see-all-projects"
               className="inline-flex items-center group"
             >
               <span className="mr-1.5 text-xs sm:text-sm font-medium text-[#959595] group-hover:text-[#f5f5f5] transition-colors duration-300">
@@ -532,7 +496,7 @@ const Page = () => {
                   />
                 </svg>
               </span>
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -591,7 +555,7 @@ const Page = () => {
                 <div className="flex gap-4 pt-3 md:pt-2">
                   <button
                     onClick={() =>
-                      lenisRef.current?.scrollTo("#contact-section")
+                      lenis.scrollTo("#contact-section")
                     }
                     className="px-3 unselectable sm:px-4 py-1.5 sm:py-2 border-2 border-[#ee00ff]/50 text-[#ee00ff]/80 bg-[#ee00ff]/10 rounded-xl hover:bg-[#ee00ff1f] transition-all ease-out hover:scale-[1.028] duration-300 text-[0.78rem] sm:text-[0.82rem] tracking-wider whitespace-nowrap"
                   >
