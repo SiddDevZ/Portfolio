@@ -35,6 +35,18 @@ const Page = () => {
     window.open("/Siddharth_Resume.pdf", "_blank");
   };
 
+
+  const scrollToContact = () => {
+    if (lenis && typeof lenis.scrollTo === "function") {
+      lenis.scrollTo("#contact-section");
+    } else {
+      const contactSection = document.getElementById("contact-section");
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <>
       <Toaster
@@ -110,7 +122,6 @@ const Page = () => {
         {/* <div className="absolute top-[30%] right-[5%] w-[30vw] h-[30vw] max-w-[300px] max-h-[300px] bg-green-500/5 rounded-full blur-[80px] z-0 hidden md:block"></div> */}
 
         <div className="px-6 unselectable py-7 md:px-12 md:py-8 lg:px-24 lg:py-8 max-w-[100rem] mx-auto flex flex-col relative z-10">
-          {/* Navigation */}
           <header className="flex justify-between items-center">
             <div className="text-[#ededed] text-xl font-serif tracking-wider">
               SIDDHARTH MEENA
@@ -272,7 +283,7 @@ const Page = () => {
                 </p>
 
                 <button
-                  onClick={() => lenis.scrollTo("#contact-section")}
+                  onClick={scrollToContact}
                   className="mt-4 sm:px-6 sm:py-3 px-4 py-2 border-2 border-[#bcbcbc] text-white bg-[#06449114] font-medium rounded-xl hover:bg-[#8306912e] hover:scale-[1.03] transition-all ease-in-out duration-300 text-sm tracking-wider"
                 >
                   CONTACT ME
@@ -554,9 +565,7 @@ const Page = () => {
 
                 <div className="flex gap-4 pt-3 md:pt-2">
                   <button
-                    onClick={() =>
-                      lenis.scrollTo("#contact-section")
-                    }
+                    onClick={scrollToContact}
                     className="px-3 unselectable sm:px-4 py-1.5 sm:py-2 border-2 border-[#ee00ff]/50 text-[#ee00ff]/80 bg-[#ee00ff]/10 rounded-xl hover:bg-[#ee00ff1f] transition-all ease-out hover:scale-[1.028] duration-300 text-[0.78rem] sm:text-[0.82rem] tracking-wider whitespace-nowrap"
                   >
                     Contact Me
