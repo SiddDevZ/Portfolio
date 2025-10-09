@@ -123,7 +123,7 @@ const Page = () => {
 
         <div className="px-6 unselectable py-7 md:px-12 md:py-8 lg:px-24 lg:py-8 max-w-[100rem] mx-auto flex flex-col relative z-10">
           <header className="flex justify-between items-center">
-            <div className="text-[#ededed] text-xl font-serif tracking-wider">
+            <div className="text-[#ededed] text-xl font-serif tracking-[0.08em] font-light">
               SIDDHARTH MEENA
             </div>
             <nav className="flex items-center space-x-4">
@@ -229,7 +229,7 @@ const Page = () => {
                   </svg>
                 </a>
                 <a
-                  href="https://x.com/siddharthz_dev"
+                  href="https://x.com/buildwithsid"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/50 hover:text-white transition-colors"
@@ -284,7 +284,7 @@ const Page = () => {
 
                 <button
                   onClick={scrollToContact}
-                  className="mt-4 sm:px-6 sm:py-3 px-4 py-2 border-2 border-[#bcbcbc] text-white bg-[#06449114] font-medium rounded-xl hover:bg-[#8306912e] hover:scale-[1.03] transition-all ease-in-out duration-300 text-sm tracking-wider"
+                  className="mt-4 sm:px-6 sm:py-3 px-4 py-2 border-2 border-[#bcbcbc] text-white bg-[#06449114] font-medium rounded-xl hover:scale-[1.03] transition-all ease-in-out duration-300 text-sm tracking-wider"
                 >
                   CONTACT ME
                 </button>
@@ -331,15 +331,15 @@ const Page = () => {
 
           <div className="relative overflow-hidden rounded-xl mb-16 sm:mb-24 border border-white/5 bg-[#111111]">
             <div className="aspect-[16/9] w-full overflow-hidden relative">
-              <Image
-                src="/lumeroo.webp"
+              <img
+                src="/featur.webp"
                 alt="Lumeroo - Streaming Platform built with modern web stack by Siddharth Meena"
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 80vw"
                 priority
                 className="object-cover"
                 loading="eager"
-                quality={85}
+                // quality={85}
               />
             </div>
 
@@ -353,29 +353,27 @@ const Page = () => {
                 </div>
 
                 <h3 className="text-white text-xl sm:text-2xl md:text-3xl mb-2">
-                  Lumeroo - Streaming Platform
+                  Onavix - Agency Website
                 </h3>
 
                 <p className="text-white/70 text-xs sm:text-sm max-w-2xl mb-4">
-                  A modern streaming platform with support for video/image
-                  uploads, HLS playback, profiles, comments, and full content
-                  discovery — built with a focus on performance and design.
+                The website for my web development agency, Onavix. Built to highlight our work, streamline client onboarding, and communicate our focus on fast, high-performing web experiences.
                 </p>
 
                 <div className="flex flex-wrap gap-3 sm:gap-4">
                   <button
-                    onClick={() => window.open("https://lumeroo.live/", "_blank")}
+                    onClick={() => window.open("https://onavix.com/", "_blank")}
                     className="px-3 sm:px-4 py-1.5 sm:py-2 border-2 border-[#00eeff]/30 text-[#00eeff]/80 bg-[#00eeff]/5 rounded-xl hover:bg-[#00eeff16] transition-all ease-out hover:scale-[1.028] duration-300 text-xs sm:text-sm tracking-wider"
                   >
                     View Website
                   </button>
 
-                  <button
-                    onClick={() => window.open("https://github.com/SiddDevZ/Lumeroo", "_blank")}
+                  {/* <button
+                    onClick={() => window.open("https://github.com/SiddDevZ/Onavix", "_blank")}
                     className="px-3 sm:px-4 py-1.5 sm:py-2 border-2 border-[#666666] text-[#bdbdbd] bg-[#747474]/5 rounded-xl hover:bg-[#262626] transition-all ease-out hover:scale-[1.028] duration-300 text-xs sm:text-sm tracking-wider"
                   >
                     Source Code
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>
@@ -384,54 +382,55 @@ const Page = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
             {[
               {
-                title: "UnchainedGPT",
+                title: "Proofly - Decentralized Verification",
                 description:
-                  "AI chatbot platform offering access to multiple AI models for free with real-time communication.",
-                image: "/unchainedgpt.webp",
-                tech: [
-                  "Next.js",
-                  "Tailwind",
-                  "MongoDB",
-                  "Socket.IO",
-                  "Hono.js",
-                ],
-                color: "#00eeff",
-                website: "https://unchainedgpt.com/",
-                github: "https://github.com/SiddDevZ/UnchainedGPT",
+                  "A blockchain powered platform that enables universities to issue tamper-proof academic certificates.",
+                image: "/proofly.webp",
+                tech: ["Next.js", "Ethers.js", "Polygon", "Hono.js", "MongoDB"],
+                color: "#ee00ff",
+                website: "https://proofly.siddz.com/",
+                github: "https://github.com/SiddDevZ/Proofly",
               },
               {
-                title: "Luvo Web",
+                title: "Reddit profile roaster",
                 description:
-                  "Luvo Web is my web development agency focused on crafting responsive and engaging websites.",
-                image: "/luvo-dark.webp",
-                tech: ["React", "Tailwind", "Vite", "Figma"],
-                color: "#ee00ff",
-                website: "https://luvo.siddz.com/",
-              },
+                  "Analyze your Reddit profile with an AI tool and get a personalized roast.",
+                  image: "/roast.webp",
+                  tech: ["React", "Node.js", "Socket.io", "Express.js"],
+                  color: "#00eeff",
+                  website: "https://roast.siddz.com/",
+                  github: "https://github.com/SiddDevZ/Reddit-Profile-Roaster",
+                },
               {
                 title: "ScaleOxPerts Website",
                 description:
-                  "A professional website for a Digital Marketing Company, developed as a freelance project.",
+                "A professional website for a Digital Marketing Company, developed as a freelance project.",
                 image: "/sacleoxperts.webp",
                 tech: ["Next.js", "Tailwind", "Figma"],
                 color: "#ee00ff",
                 white: true,
                 website: "https://scaleoxperts.com/",
               },
-              {
-                title: "Bantr - Chatting App",
-                description:
-                  "Real-Time chatting app similar to Discord. Servers, channels, direct messages, and much more..",
-                image: "/bantr.webp",
-                tech: ["React", "Node.js", "Socket.io", "Express.js"],
-                color: "#00eeff",
-                website: "https://bantr.siddz.com/",
-                github: "https://github.com/SiddDevZ/Bantr",
-              },
+                {
+                  title: "UnchainedGPT",
+                  description:
+                    "AI chatbot platform offering access to multiple AI models for free with real-time communication.",
+                  image: "/unchainedgpt.webp",
+                  tech: [
+                    "Next.js",
+                    "Tailwind",
+                    "MongoDB",
+                    "Socket.IO",
+                    "Hono.js",
+                  ],
+                  color: "#00eeff",
+                  website: "https://unchainedgpt.com/",
+                  github: "https://github.com/SiddDevZ/UnchainedGPT",
+                },
             ].map((project, index) => (
               <div
                 key={index}
-                className="overflow-hidden rounded-xl border border-white/5 bg-[#111111] transition-all duration-300 hover:translate-y-[-2.5px] group"
+                className="overflow-hidden rounded-xl border border-white/5 bg-[#111111] transition-all duration-300 group"
               >
                 <div className="aspect-[16/9] w-full overflow-hidden">
                   <img
@@ -454,7 +453,7 @@ const Page = () => {
                     ))}
                   </div>
 
-                  <h3 className="text-white text-lg sm:text-xl md:text-2xl font-medium mb-1.5 sm:mb-2 line-clamp-1">
+                  <h3 className="text-white text-lg sm:text-xl md:text-2xl font-medium mb-1.5 sm:mb-1 line-clamp-1">
                     {project.title}
                   </h3>
 
@@ -465,14 +464,14 @@ const Page = () => {
                   <div className="flex flex-wrap gap-2 sm:gap-2.5">
                     <button
                       onClick={() => window.open(project.website, "_blank")}
-                      className="px-3 sm:px-4 py-1 sm:py-1.5 border-2 border-[#00eeff]/30 text-[#00eeff]/80 bg-[#00eeff]/5 rounded-xl hover:bg-[#00eeff16] transition-all ease-out hover:scale-[1.028] duration-300 text-[0.7rem] sm:text-[0.8rem] tracking-wider whitespace-nowrap"
+                      className="px-3 sm:px-4 py-1 sm:py-1.5 border-2 border-[#00eeff]/30 text-[#00eeff]/80 bg-[#00eeff]/5 rounded-xl hover:bg-[#00eeff16] transition-all ease-in-out hover:scale-[1.028] duration-300 text-[0.7rem] sm:text-[0.8rem] tracking-wider whitespace-nowrap"
                     >
                       View Website
                     </button>
                     {project.github && (
                       <button
                         onClick={() => window.open(project.github, "_blank")}
-                        className="px-3 sm:px-4 py-1 sm:py-1.5 border-2 border-[#666666] text-[#bdbdbd] bg-[#747474]/5 rounded-xl hover:bg-[#262626] transition-all ease-out hover:scale-[1.028] duration-300 text-[0.7rem] sm:text-[0.8rem] tracking-wider whitespace-nowrap"
+                        className="px-3 sm:px-4 py-1 sm:py-1.5 border-2 border-[#666666] text-[#bdbdbd] bg-[#747474]/5 rounded-xl hover:bg-[#262626] transition-all ease-in-out hover:scale-[1.028] duration-300 text-[0.7rem] sm:text-[0.8rem] tracking-wider whitespace-nowrap"
                       >
                         Source Code
                       </button>
@@ -592,9 +591,9 @@ const Page = () => {
                 <div className="flex flex-col justify-between h-full">
                   {[
                     {
-                      title: "Web Developer & Owner",
+                      title: "Founder & Developer",
                       date: "2023 - Present",
-                      company: "Luvo Web",
+                      company: "Onavix Studio",
                       description:
                         "My development agency which specializes in building high-quality websites for clients across various industries, including businesses backed by Y Combinator and other renowned accelerators.",
                       borderColor: "border-[#ee00ff]/50",
@@ -775,7 +774,7 @@ const Page = () => {
                       </svg>
                     </a>
                     <a
-                      href="https://x.com/epicsidd"
+                      href="https://x.com/buildwithsid"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-9 h-9 rounded-full bg-[#ffffff0c] flex items-center justify-center text-white/50 hover:text-white hover:bg-[#ffffff12] transition-all duration-300 hover:scale-110"

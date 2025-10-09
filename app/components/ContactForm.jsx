@@ -1,7 +1,6 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { toast } from "react-hot-toast";
-import emailjs from "@emailjs/browser";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
@@ -17,10 +16,6 @@ const ContactForm = () => {
   const [isSent, setIsSent] = useState(false);
   
   const [canResend, setCanResend] = useState(true);
-  
-  useEffect(() => {
-    emailjs.init("LkCnVmcFfXTXGYbVF");
-  }, []);
 
   const isValidEmail = (email) => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -64,46 +59,42 @@ const ContactForm = () => {
       return;
     }
     
-    // Prepare data for emailjs
-    const templateParams = {
-      from_name: name,
-      to_name: "Siddharth",
-      email_id: email,
-      subject: subject || "Contact Form Submission",
-      message: message,
-    };
+    // Prepare form data for Web3Forms
+    const formData = new FormData();
+    formData.append('access_key', 'bfcd8473-0c1e-4e4e-b701-a7d30bdd7d93');
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('subject', subject || 'Portfolio Contact Form Submission');
+    formData.append('message', message);
+    formData.append('from_name', 'PORTFOLIO');
     
     try {
-      await emailjs.send(
-        "service_5lt93fb", // Your EmailJS service ID
-        "template_cxxitvt", // Your EmailJS template ID
-        templateParams,
-        "LkCnVmcFfXTXGYbVF" // Your EmailJS public key
-      )
-      .then((response) => {
-        if (response.status === 200) {
-          setIsLoading(false);
-          toast.success("Message sent successfully!");
-          
-          // Reset form
-          setName("");
-          setEmail("");
-          setSubject("");
-          setMessage("");
-          setIsSent(true);
-          
-          // Allow sending another message after 10 seconds
-          setTimeout(() => {
-            setIsSent(false);
-          }, 10000);
-        }
-      })
-      .catch((error) => {
-        console.error("Error sending email:", error);
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setIsLoading(false);
+        toast.success("Message sent successfully!");
+        
+        // Reset form
+        setName("");
+        setEmail("");
+        setSubject("");
+        setMessage("");
+        setIsSent(true);
+        
+        // Allow sending another message after 10 seconds
+        setTimeout(() => {
+          setIsSent(false);
+        }, 10000);
+      } else {
         toast.error("Failed to send message. Please try again or contact directly via email.");
         setIsLoading(false);
-      });
-      
+      }
     } catch (error) {
       console.error("Error sending email:", error);
       toast.error("Failed to send message. Please try again or contact directly via email.");

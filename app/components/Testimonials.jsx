@@ -11,11 +11,11 @@ const testimonials = [
     color: "#00eeff"
   },
   {
-    id: 3,
-    name: "Betrey",
-    role: "Portfolio Website",
-    image: "https://i.imgur.com/JbwBQee.png",
-    content: "5 out of 5 stars! He delivered a fully functional website with a great design that exceeded my expectations. He was highly responsive to my requests and provided excellent value for the price.",
+    id: 2,
+    name: "Mohd Sameer",
+    role: "Digital Marketing",
+    image: "/mohd.webp",
+    content: "Siddharth built us a clean, professional, and user-friendly website while ensuring a smooth process. He was responsive, made changes as needed, and offered great suggestions. Highly recommended!",
     color: "#ee00ff"
   },
   {
@@ -27,13 +27,13 @@ const testimonials = [
     color: "#00eeff"
   },
   {
-    id: 2,
-    name: "Mohd Sameer",
-    role: "Digital Marketing",
-    image: "/mohd.webp",
-    content: "Siddharth built us a clean, professional, and user-friendly website while ensuring a smooth process. He was responsive, made changes as needed, and offered great suggestions. Highly recommended!",
+    id: 3,
+    name: "Candy",
+    role: "Entertainment Business",
+    image: "https://i.imgur.com/SbKwIOv.png",
+    content: "Siddharth built my video-sharing platform from scratch with great attention to detail and flexibility. He exceeded expectations, delivered top quality, and offered incredible value for the cost.",
     color: "#ee00ff"
-  }
+  },
 ];
 
 const Testimonials = () => {
@@ -53,7 +53,7 @@ const Testimonials = () => {
             className='bg-[#161616] hover:-translate-y-0.5 rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex flex-col h-full transition-all duration-300 hover:shadow-lg hover:shadow-[#0e0e0e] border border-[#252525]'
           >
             <div className='relative mb-3 sm:mb-4'>
-              <p className='text-white/80 font-inter text-sm sm:text-base leading-relaxed pt-2 sm:pt-4 pl-2 sm:pl-3 italic'>
+              <p className='text-[#d7d7d7] font-inter text-sm sm:text-base leading-relaxed pt-2 sm:pt-4 pl-2 sm:pl-3 italic'>
                 {testimonial.content}
               </p>
             </div>

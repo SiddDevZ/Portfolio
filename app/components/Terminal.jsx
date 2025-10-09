@@ -10,8 +10,9 @@ const Terminal = () => {
     { text: 'Type "help" to see available commands.', type: 'system' }
   ])
   const [currentDir, setCurrentDir] = useState('~')
-  const [isTyping, setIsTyping] = useState(false)
-  const [outputQueue, setOutputQueue] = useState([])
+  const [pastCommands, setPastCommands] = useState([])
+  const [historyIndex, setHistoryIndex] = useState(-1)
+  const [isProcessing, setIsProcessing] = useState(false)
   const terminalRef = useRef(null)
   const inputRef = useRef(null)
 
@@ -25,8 +26,16 @@ const Terminal = () => {
   const commands = {
     help: 'List all available commands',
     about: 'Learn about Siddharth',
+    skills: 'Display technical skills',
+    contact: 'Get contact information',
+    whoami: 'Display current user info',
+    date: 'Display current date and time',
+    echo: 'Echo a message',
+    ping: 'Ping a server',
     clear: 'Clear terminal',
     ls: 'List all available commands',
+    cat: 'Display file contents',
+    tree: 'Display directory tree',
     matrix: 'Enter the Matrix',
     neofetch: 'Display system info',
     hack: 'Simulate hacking (because why not?)',
@@ -52,45 +61,7 @@ const Terminal = () => {
     }
   }
 
-  // Process the output queue with delay
-  useEffect(() => {
-    if (outputQueue.length > 0 && !isTyping) {
-      setIsTyping(true)
-      
-      const item = outputQueue[0]
-      const newQueue = outputQueue.slice(1)
-      
-      setCommandHistory(prev => [...prev, item])
-      setOutputQueue(newQueue)
-      
-      if (terminalRef.current) {
-        terminalRef.current.scrollTop = terminalRef.current.scrollHeight
-      }
-      
-      let delay = 0
-      if (item.type === 'command' || item.type === 'system') {
-        delay = 0 // No delay for command input
-      } else if (item.type === 'matrix') {
-        delay = 50 // Fast for matrix effect
-      } else if (item.type === 'code') {
-        delay = 30 // Fast for code-like output
-      } else if (item.type === 'hacking') {
-        delay = 750 // Fast for code-like output
-      } else if (item.type === 'italic') {
-        delay = 1200 // Fast for code-like output
-      }
-      else if (item.type === 'error') {
-        delay = 50 // Medium for errors
-      } else {
-        delay = Math.random() * 80 + 30
-      }
-      
-      setTimeout(() => {
-        setIsTyping(false)
-      }, delay)
-    }
-  }, [outputQueue, isTyping])
-
+  // Auto-scroll to bottom when command history updates
   useEffect(() => {
     if (terminalRef.current) {
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight
@@ -103,7 +74,19 @@ const Terminal = () => {
     }
   }, [])
 
-  const executeCommand = (cmd) => {
+  // Smooth output rendering like Ubuntu terminal
+  const renderOutput = async (output) => {
+    setIsProcessing(true)
+    
+    for (let i = 0; i < output.length; i++) {
+      await new Promise(resolve => setTimeout(resolve, 20)) // 20ms delay between lines
+      setCommandHistory(prev => [...prev, output[i]])
+    }
+    
+    setIsProcessing(false)
+  }
+
+  const executeCommand = async (cmd) => {
     const args = cmd.split(' ')
     const command = args[0].toLowerCase()
     const params = args.slice(1)
@@ -111,7 +94,7 @@ const Terminal = () => {
     let output = []
 
     const cmdOutput = { text: `${currentDir} $ ${cmd}`, type: 'command' }
-    setOutputQueue(prev => [...prev, cmdOutput])
+    setCommandHistory(prev => [...prev, cmdOutput])
 
     switch (command) {
       case 'help':
@@ -119,7 +102,7 @@ const Terminal = () => {
         output.push({ text: '║           AVAILABLE COMMANDS        ║', type: 'system-header' })
         output.push({ text: '╚════════════════════════════════════╝', type: 'system-border' })
         Object.entries(commands).forEach(([cmd, desc]) => {
-          output.push({ text: `  ${cmd.padEnd(10)} - ${desc}`, type: 'system' })
+          output.push({ text: `  ${cmd.padEnd(12)} - ${desc}`, type: 'system' })
         })
         break
 
@@ -135,6 +118,70 @@ const Terminal = () => {
         output.push({ text: ' */', type: 'comment' })
         break
 
+      case 'skills':
+        output.push({ text: '╔════════════════════════════════════╗', type: 'system-border' })
+        output.push({ text: '║          TECHNICAL SKILLS           ║', type: 'system-header' })
+        output.push({ text: '╚════════════════════════════════════╝', type: 'system-border' })
+        output.push({ text: '  Frontend:  React, Next.js, Tailwind CSS', type: 'system' })
+        output.push({ text: '  Backend:   Node.js, Express, Hono.js, Python', type: 'system' })
+        output.push({ text: '  Database:  MongoDB, PostgreSQL, MySQL', type: 'system' })
+        output.push({ text: '  Tools:     Git, Docker, VS Code', type: 'system' })
+        output.push({ text: '  Other:     Cybersecurity, Web3, AI/ML', type: 'system' })
+        break
+
+      case 'contact':
+        output.push({ text: '╔════════════════════════════════════╗', type: 'system-border' })
+        output.push({ text: '║          CONTACT INFO               ║', type: 'system-header' })
+        output.push({ text: '╚════════════════════════════════════╝', type: 'system-border' })
+        output.push({ text: '  Email:    siddz.dev@gmail.com', type: 'system' })
+        output.push({ text: '  GitHub:   github.com/SiddDevZ', type: 'system' })
+        output.push({ text: '  LinkedIn: linkedin.com/in/siddharth-k-meena', type: 'system' })
+        output.push({ text: '  Twitter:  @buildwithsid', type: 'system' })
+        break
+
+      case 'whoami':
+        output.push({ text: 'siddharth@portfolio', type: 'system' })
+        output.push({ text: 'Role: Fullstack Developer & Cybersecurity Enthusiast', type: 'system' })
+        break
+
+      case 'date':
+        const now = new Date()
+        output.push({ text: now.toString(), type: 'system' })
+        break
+
+      case 'echo':
+        const echoMessage = params.length > 0 ? params.join(' ') : ''
+        output.push({ text: echoMessage, type: 'system' })
+        break
+
+      case 'ping':
+        const target = params[0] || 'google.com'
+        output.push({ text: `PING ${target} (216.58.214.206): 56 data bytes`, type: 'system' })
+        output.push({ text: `64 bytes from ${target}: icmp_seq=0 ttl=117 time=12.3 ms`, type: 'system' })
+        output.push({ text: `64 bytes from ${target}: icmp_seq=1 ttl=117 time=11.8 ms`, type: 'system' })
+        output.push({ text: `64 bytes from ${target}: icmp_seq=2 ttl=117 time=12.1 ms`, type: 'system' })
+        output.push({ text: '', type: 'system' })
+        output.push({ text: `--- ${target} ping statistics ---`, type: 'system' })
+        output.push({ text: '3 packets transmitted, 3 received, 0% packet loss', type: 'system' })
+        break
+
+      case 'cat':
+        const fileName = params[0] || 'README.md'
+        output.push({ text: `# ${fileName}`, type: 'system' })
+        output.push({ text: '', type: 'system' })
+        output.push({ text: 'Welcome to my portfolio terminal!', type: 'system' })
+        output.push({ text: 'Type "help" to see available commands.', type: 'system' })
+        break
+
+      case 'tree':
+        output.push({ text: '.', type: 'system' })
+        output.push({ text: '├── about/', type: 'file-list' })
+        output.push({ text: '├── contact/', type: 'file-list' })
+        output.push({ text: '├── projects/', type: 'file-list' })
+        output.push({ text: '├── skills/', type: 'file-list' })
+        output.push({ text: '└── README.md', type: 'file-list' })
+        break
+
       case 'clear':
         setCommandHistory([])
         return
@@ -146,7 +193,7 @@ const Terminal = () => {
         
         for (let i = 0; i < commandList.length; i += commandsPerRow) {
           const rowCommands = commandList.slice(i, i + commandsPerRow);
-          const rowText = rowCommands.map(cmd => cmd.padEnd(12)).join('');
+          const rowText = rowCommands.map(cmd => cmd.padEnd(13)).join('');
           output.push({ text: rowText, type: 'file-list' });
         }
         break
@@ -176,7 +223,6 @@ const Terminal = () => {
         output.push({ text: '          Skills: Next.js, Tailwind, React', type: 'system' })
         output.push({ text: '          Projects: 50+', type: 'system' })
         output.push({ text: '          GitHub: github.com/SiddDevZ', type: 'system' })
-        // output.push({ text: '          never gonna give you up :)', type: 'matrix' })
         break
 
       case 'hack':
@@ -241,20 +287,70 @@ const Terminal = () => {
         break
 
       default:
-        output.push({ text: `Command not found: ${command}. Type 'help' for available commands.`, type: 'error' })
+        output.push({ text: `Command not found: ${command}. Type 'help' to see them.`, type: 'error' })
     }
 
-    setOutputQueue(prev => [...prev, ...output])
+    await renderOutput(output)
   }
 
-  const handleSubmit = (e) => {
+  const handleKeyDown = (e) => {
+    if (e.key === 'ArrowUp') {
+      e.preventDefault()
+      if (pastCommands.length > 0) {
+        const newIndex = historyIndex === -1 ? pastCommands.length - 1 : Math.max(0, historyIndex - 1)
+        setHistoryIndex(newIndex)
+        setInput(pastCommands[newIndex])
+      }
+    }
+    else if (e.key === 'ArrowDown') {
+      e.preventDefault()
+      if (historyIndex !== -1) {
+        const newIndex = historyIndex + 1
+        if (newIndex >= pastCommands.length) {
+          setHistoryIndex(-1)
+          setInput('')
+        } else {
+          setHistoryIndex(newIndex)
+          setInput(pastCommands[newIndex])
+        }
+      }
+    }
+    else if (e.key === 'Tab') {
+      e.preventDefault()
+      const inputLower = input.toLowerCase()
+      const matches = Object.keys(commands).filter(cmd => cmd.startsWith(inputLower))
+      if (matches.length === 1) {
+        setInput(matches[0])
+      } else if (matches.length > 1 && input) {
+        let commonPrefix = matches[0]
+        for (let i = 1; i < matches.length; i++) {
+          let j = 0
+          while (j < commonPrefix.length && j < matches[i].length && 
+                 commonPrefix[j] === matches[i][j]) {
+            j++
+          }
+          commonPrefix = commonPrefix.substring(0, j)
+        }
+        if (commonPrefix.length > input.length) {
+          setInput(commonPrefix)
+        }
+      }
+    }
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
     
+    if (isProcessing) return
+    
     if (input.trim() !== '') {
-      executeCommand(input)
+      setPastCommands(prev => [...prev, input])
+      setHistoryIndex(-1)
+      const cmd = input
       setInput('')
+      await executeCommand(cmd)
     } else {
-      executeCommand('')
+      await executeCommand('')
     }
   }
 
@@ -288,7 +384,7 @@ const Terminal = () => {
           {commandHistory.map((item, index) => (
             <div 
               key={index} 
-              className={`mb-1 ${
+              className={`mb-1 terminal-line ${
                 item.type === 'command' ? 'text-[#d4d4d4] font-bold' : 
                 item.type === 'error' ? 'text-[#f56565]' : 
                 item.type === 'system-header' ? 'text-white font-bold' : 
@@ -317,13 +413,15 @@ const Terminal = () => {
               type='text'
               value={input}
               onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
               className='flex-1 bg-transparent outline-none text-[#d4d4d4] caret-[#d4d4d4]'
+              autoComplete='off'
+              spellCheck='false'
             />
           </form>
         </div>
       </div>
 
-      {/* Add custom scrollbar styles */}
       <style jsx global>{`
         .custom-scrollbar::-webkit-scrollbar {
           width: 6px;
@@ -337,6 +435,22 @@ const Terminal = () => {
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
           background: #555;
+        }
+        
+        /* Smooth terminal line animation */
+        @keyframes terminalFadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(-2px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .terminal-line {
+          animation: terminalFadeIn 0.15s ease-out;
         }
       `}</style>
     </div>

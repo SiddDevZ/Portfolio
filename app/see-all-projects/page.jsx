@@ -9,6 +9,14 @@ const Page = () => {
 
   const allProjects = [
     {
+      title: "Onavix - Agency Website",
+      description: "The website for my web development agency, Onavix. Built to highlight our work, streamline client onboarding, and communicate our focus on fast, high-performing web experiences.",
+      image: "/featur.webp",
+      tech: ["Next.js", "Tailwind", "Framer Motion", "TypeScript"],
+      website: "https://onavix.com/",
+      github: "https://github.com/SiddDevZ/Onavix",
+    },
+    {
       title: "Lumeroo - Streaming Platform",
       description: "A modern streaming platform with support for video/image uploads, HLS playback, profiles, comments, and full content discovery — built with a focus on performance and design.",
       image: "/lumeroo.webp",
@@ -23,6 +31,22 @@ const Page = () => {
       tech: ["Next.js", "Tailwind", "MongoDB", "Socket.IO", "Hono.js"],
       website: "https://unchainedgpt.com/",
       github: "https://github.com/SiddDevZ/UnchainedGPT",
+    },
+    {
+      title: "Proofly - Decentralized Verification",
+      description: "A blockchain powered platform that enables universities to issue tamper-proof academic certificates.",
+      image: "/proofly.webp",
+      tech: ["Next.js", "Ethers.js", "Polygon", "Hono.js", "MongoDB"],
+      website: "https://proofly.siddz.com/",
+      github: "https://github.com/SiddDevZ/Proofly",
+    },
+    {
+      title: "Reddit Profile Roaster",
+      description: "Analyze your Reddit profile with an AI tool and get a personalized roast.",
+      image: "/roast.webp",
+      tech: ["React", "Node.js", "Socket.io", "Express.js"],
+      website: "https://roast.siddz.com/",
+      github: "https://github.com/SiddDevZ/Reddit-Profile-Roaster",
     },
     {
       title: "Luvo Web Agency",

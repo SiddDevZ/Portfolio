@@ -53,7 +53,7 @@ const Footer = () => {
               </svg>
             </a>
             <a
-              href="https://x.com/siddharthz_dev" 
+              href="https://x.com/buildwithsid" 
               target="_blank"
               rel="noopener noreferrer"
               className="text-white/50 hover:text-white transition-colors duration-300"
