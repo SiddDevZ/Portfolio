@@ -603,7 +603,7 @@ const Page = () => {
                     {
                       title: "Senior Technical Coordinator",
                       date: "2024 - Present",
-                      company: "IEEE CS",
+                      company: "IEEE Computer Society",
                       description:
                         "I am a part of IEEE CS's Core Team, where I've contributed to various projects and events, organizing hackathons, workshops, and competitions to help students and developers grow.",
                       borderColor: "border-[#8000ff]/50",
